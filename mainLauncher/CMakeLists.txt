@@ -1,7 +1,7 @@
 
 add_executable(mainLauncher mainLauncher.cpp)
 
-target_link_libraries(mainLauncher PUBLIC src)
+target_link_libraries(mainLauncher PUBLIC src tmxlite)
 
 add_custom_target(copy-resources ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/resources)
 # "COMMAND ${CMAKE_COMMAND} -E copy_directory" triggers a generation error with Visual Studio

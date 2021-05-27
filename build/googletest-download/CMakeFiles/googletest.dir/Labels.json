@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/googletest"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/940b71dc705b27f4bd8d2de4e9a218d2/googletest.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/19a86c9cc51bef11b7dea985148cccd3/googletest-complete.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-build.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-configure.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-download.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-install.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-patch.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-test.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/2fe1d53e7b123629f57a2043054890c5/googletest-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest"
+		],
+		"name" : "googletest"
+	}
+}

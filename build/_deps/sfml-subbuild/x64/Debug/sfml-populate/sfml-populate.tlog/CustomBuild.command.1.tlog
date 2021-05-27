@@ -1,0 +1,162 @@
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\5349EDF21E7F41005645B30D20E67C59\SFML-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\37B6EA02ADEE6D3B4FA560CE751B7D9D\SFML-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/Debug/sfml-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/Debug/sfml-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKEFILES\B4CD0F5F3D85A7B841744AEC20DB6B32\SFML-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\SFML-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild --check-stamp-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/tmxlite"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/f00b9bb120f5fa13aa302ae82ec07c27/tmxlite.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/ecb45c2851f0149ccd6dd9af8f7745e2/tmxlite-complete.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-build.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-configure.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-download.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-install.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-patch.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-test.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/7646c14ebdd7e5cb3d5ca98cf52ebd71/tmxlite-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"tmxlite"
+		],
+		"name" : "tmxlite"
+	}
+}

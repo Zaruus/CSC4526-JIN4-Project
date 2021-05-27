@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/pugixml-populate"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/294d86598930c7ab7ee8ee29e291f361/pugixml-populate.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/2eb19a4d33ff704497e61b75e652bf6a/pugixml-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/e54a2621c288c363302bf0ff34eab343/pugixml-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"pugixml-populate"
+		],
+		"name" : "pugixml-populate"
+	}
+}

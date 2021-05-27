@@ -1,0 +1,162 @@
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-DOWNLOAD.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/tmp/googletest-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-UPDATE.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\googletest-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/tmp/googletest-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-CONFIGURE.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-BUILD.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-INSTALL.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\2FE1D53E7B123629F57A2043054890C5\GOOGLETEST-TEST.RULE
+setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\googletest-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\19A86C9CC51BEF11B7DEA985148CCCD3\GOOGLETEST-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/Debug/googletest-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/googletest-prefix/src/googletest-stamp/Debug/googletest-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKEFILES\940B71DC705B27F4BD8D2DE4E9A218D2\GOOGLETEST.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download --check-stamp-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

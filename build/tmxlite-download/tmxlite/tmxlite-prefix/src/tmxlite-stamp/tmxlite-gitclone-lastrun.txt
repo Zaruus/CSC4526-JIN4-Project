@@ -1,0 +1,3 @@
+repository='https://github.com/fallahn/tmxlite'
+module=''
+tag='origin'

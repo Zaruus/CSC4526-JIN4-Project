@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\tmxlite-download\tmxlite\CMakeFiles\f00b9bb120f5fa13aa302ae82ec07c27\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{151F2D6C-13C5-3EC4-8F2E-3E40D584747F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

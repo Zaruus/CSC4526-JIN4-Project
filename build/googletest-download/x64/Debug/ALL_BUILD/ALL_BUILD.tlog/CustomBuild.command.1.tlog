@@ -1,0 +1,10 @@
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\GOOGLETEST-DOWNLOAD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download --check-stamp-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/googletest-download/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

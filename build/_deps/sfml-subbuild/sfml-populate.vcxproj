@@ -1,0 +1,963 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1906B5BF-BD6D-3C9B-9A6C-CAA5347D2FC2}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>sfml-populate</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-mkdir.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\sfml-populate-gitinfo.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\sfml-populate-gitinfo.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\sfml-populate-gitinfo.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\sfml-populate-gitinfo.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-update.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-patch.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-configure.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-build.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-install.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\5349edf21e7f41005645b30d20e67c59\sfml-populate-test.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\37b6ea02adee6d3b4fa560ce751b7d9d\sfml-populate-complete.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)/sfml-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)/sfml-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)/sfml-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'sfml-populate'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/$(Configuration)/sfml-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/$(Configuration)/sfml-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-install;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-mkdir;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-download;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-update;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-patch;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-configure;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-build;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\src\sfml-populate-stamp\$(Configuration)\sfml-populate-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\b4cd0f5f3d85a7b841744aec20db6b32\sfml-populate.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\sfml-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\sfml-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\sfml-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\$(Configuration)\sfml-populate-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\sfml-populate</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild --check-stamp-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\RepositoryInfo.txt.in;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\3.20.1\CMakeSystem.cmake;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild --check-stamp-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\RepositoryInfo.txt.in;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\3.20.1\CMakeSystem.cmake;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild --check-stamp-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\RepositoryInfo.txt.in;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\3.20.1\CMakeSystem.cmake;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild --check-stamp-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/sfml-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.20\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.20\Modules\RepositoryInfo.txt.in;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\3.20.1\CMakeSystem.cmake;C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\sfml-populate-prefix\tmp\sfml-populate-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\CMakeFiles\sfml-populate">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\pierr\source\repos\CSC4526-JIN4-Project\build\_deps\sfml-subbuild\ZERO_CHECK.vcxproj">
+      <Project>{36A502A6-BCD2-3AC3-AB3C-0E489F2CB6DC}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

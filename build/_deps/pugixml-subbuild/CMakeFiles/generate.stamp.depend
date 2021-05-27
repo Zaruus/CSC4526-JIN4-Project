@@ -1,0 +1,13 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.20/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.20/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.20/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.20/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.20/Modules/ExternalProject-gitupdate.cmake.in
+C:/Program Files/CMake/share/cmake-3.20/Modules/ExternalProject.cmake
+C:/Program Files/CMake/share/cmake-3.20/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.20/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.20/Modules/RepositoryInfo.txt.in
+C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeFiles/3.20.1/CMakeSystem.cmake
+C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/CMakeLists.txt
+C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/pugixml-populate-prefix/tmp/pugixml-populate-cfgcmd.txt.in

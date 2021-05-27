@@ -1,0 +1,10 @@
+^C:\USERS\PIERR\SOURCE\REPOS\CSC4526-JIN4-PROJECT\BUILD\_DEPS\PUGIXML-SUBBUILD\CMAKEFILES\294D86598930C7AB7EE8EE29E291F361\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild -BC:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/_deps/pugixml-subbuild/pugixml-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
