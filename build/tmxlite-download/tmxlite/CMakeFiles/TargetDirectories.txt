@@ -1,3 +1,0 @@
-C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/tmxlite.dir
-C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/ALL_BUILD.dir
-C:/Users/pierr/source/repos/CSC4526-JIN4-Project/build/tmxlite-download/tmxlite/CMakeFiles/ZERO_CHECK.dir

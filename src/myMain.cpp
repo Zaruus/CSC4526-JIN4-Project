@@ -1,100 +1,109 @@
 #include "myMain.h"
-#include "Shapes.h"
-#include "Group.h"
+#include <chrono>
 #include <pugixml.hpp>
 #include <imgui.h>
 #include <imgui-SFML.h>
+
 #include <iostream>
+
+#include <tmxlite/Map.hpp>
+#include <tmxlite/Layer.hpp>
+#include <tmxlite/TileLayer.hpp>
+#include <tmxlite/ObjectGroup.hpp>
+
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
 
 using namespace std;
 
-constexpr int WIDTH = 800;
-constexpr int HEIGHT = 600;
+using namespace std::chrono_literals;
 
-bool renderImgui(std::unique_ptr<Group>&, CoordinateMap<Shape>& coordinates);
+// we use a fixed timestep of 1 / (60 fps) = 16 milliseconds
+constexpr std::chrono::nanoseconds timestep(16ms);
 
-int myMain()
-{
-    pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_file("resources/visage.xml");
-    if (!result)
+bool handle_events() {
+    // poll for events
+
+    return false; // true if the user wants to quit the game
+}
+
+void update(game_state*) {
+    // update game logic here
+
+    tmx::Map map;
+    if (map.load("resources/Terrain-Test.tmx"))
     {
-        std::cerr << "Could not open file resources/visage.xml" << std::endl;
-        return 1;
-    }
-
-    pugi::xml_node drawing = doc.root();
-    std::unique_ptr<Group> visage = std::make_unique<Group>(drawing);
-    CoordinateMap<Shape> coordinates;
-    visage->computeAbsolute(coordinates, WIDTH/2, HEIGHT/2);
-
-    vector<sf::Shape*> shapes;
-
-    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "resources/visage.xml");
-
-    ImGui::SFML::Init(window);
-
-    // inversion axe Y
-    sf::View view = window.getDefaultView();
-    view.setSize(WIDTH, -HEIGHT);
-    window.setView(view);
-
-    sf::Clock deltaClock;
-    while(window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event))
+        const auto& layers = map.getLayers();
+        for (const auto& layer : layers)
         {
-            ImGui::SFML::ProcessEvent(event);
-            switch (event.type) {
-                case sf::Event::Closed:
-                    window.close();
-                    break;
+            if (layer->getType() == tmx::Layer::Type::Object)
+            {
+                const auto& objectLayer = layer->getLayerAs<tmx::ObjectGroup>();
+                const auto& objects = objectLayer.getObjects();
+                for (const auto& object : objects)
+                {
+                    //do stuff with object properties
+                }
+            }
+            else if (layer->getType() == tmx::Layer::Type::Tile)
+            {
+                const auto& tileLayer = layer->getLayerAs<tmx::TileLayer>();
+                //read out tile layer properties etc...
             }
         }
 
-        ImGui::SFML::Update(window, deltaClock.restart());
-
-        if(renderImgui(visage, coordinates)) { // refresh
-            coordinates.clear();
-            visage->computeAbsolute(coordinates, WIDTH/2, HEIGHT/2);
+        const auto& tilesets = map.getTilesets();
+        for (const auto& tileset : tilesets)
+        {
+            //read out tile set properties, load textures etc...
         }
-
-        shapes.clear();
-        visage->render(shapes, coordinates);
-
-        window.clear(sf::Color::White);
-        for(const auto* shape : shapes) {
-            window.draw(*shape);
-        }
-        ImGui::SFML::Render(window);
-        window.display();
     }
-    ImGui::SFML::Shutdown();
+    
+}
+
+void render(game_state const&) {
+    // render stuff here
+}
+
+game_state interpolate(game_state const& current, game_state const& previous, float alpha) {
+    game_state interpolated_state;
+
+    // interpolate between previous and current by alpha here
+
+    return interpolated_state;
+}
+
+int myMain() {
+    using clock = std::chrono::high_resolution_clock;
+
+    std::chrono::nanoseconds lag(0ns);
+    auto time_start = clock::now();
+    bool quit_game = false;
+
+    game_state current_state;
+    game_state previous_state;
+
+    while (!quit_game) {
+        auto delta_time = clock::now() - time_start;
+        time_start = clock::now();
+        lag += std::chrono::duration_cast<std::chrono::nanoseconds>(delta_time);
+
+        quit_game = handle_events();
+
+        // update game logic as lag permits
+        while (lag >= timestep) {
+            lag -= timestep;
+
+            previous_state = current_state;
+            update(&current_state); // update at a fixed rate each time
+        }
+
+        // calculate how close or far we are from the next timestep
+        auto alpha = (float)lag.count() / timestep.count();
+        auto interpolated_state = interpolate(current_state, previous_state, alpha);
+
+        render(interpolated_state);
+    }
 
     return 0;
 }
-
-void save(unique_ptr<Group>& baseGroup) {
-    pugi::xml_document doc;
-    pugi::xml_node root = doc.append_child("Drawing");
-    baseGroup->toXML(root);
-
-    doc.save(cout);
-
-    cout << "Saving result: " << doc.save_file("drawing.xml") << endl;
-}
-
-bool renderImgui(std::unique_ptr<Group>& baseGroup, CoordinateMap<Shape>& coordinates) {
-    ImGui::Begin("Hierarchy");
-    if(ImGui::Button("Save to \"drawing.xml\"")) {
-        save(baseGroup);
-    }
-    bool refresh = false;
-    if(baseGroup->renderElement(nullptr, coordinates, refresh)) {
-        ImGui::TreePop();
-    }
-    ImGui::End();
-    return refresh;
-}
-
-
