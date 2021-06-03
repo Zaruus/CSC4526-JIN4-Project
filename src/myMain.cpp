@@ -27,6 +27,11 @@ bool handle_events() {
     return false; // true if the user wants to quit the game
 }
 
+void init()
+{
+    // Initialize your data here
+}
+
 void update(game_state*) {
     // update game logic here
 
@@ -75,6 +80,8 @@ game_state interpolate(game_state const& current, game_state const& previous, fl
 
 int myMain() {
     using clock = std::chrono::high_resolution_clock;
+
+    init();
 
     std::chrono::nanoseconds lag(0ns);
     auto time_start = clock::now();
