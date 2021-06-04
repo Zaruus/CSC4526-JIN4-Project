@@ -17,6 +17,8 @@
 #include "Game_state.h"
 #include "Play_state.h"
 
+#include "SFMLOrthogonalLayer.h"
+
 
 using namespace std;
 
@@ -27,6 +29,9 @@ constexpr std::chrono::nanoseconds timestep(16ms);
 
 
 std::unique_ptr<Game_state> current_game_state;
+std::unique_ptr<sf::RenderWindow> window;
+std::unique_ptr<MapLayer> layerZero;
+
 //Game_state* current_game_state;
 
 bool handle_events() {
@@ -39,6 +44,13 @@ void init()
 {
     // Initialize your data here
     current_game_state = make_unique<Play_state>("resources/Terrain-Test.tmx");
+    window = std::make_unique<sf::RenderWindow>(sf::VideoMode(640, 640), "SFML window");
+    tmx::Map map;
+    map.load("resources/montest.tmx");
+    layerZero = make_unique<MapLayer>(map, 0);
+
+    
+    
     //current_game_state = new Play_state("resources/Terrain-Test.tmx");
 }
 
@@ -102,7 +114,16 @@ int myMain() {
     game_state current_state;
     game_state previous_state;
 
-    while (!quit_game) {
+    while (!quit_game)
+   
+    {
+        sf::Event event;
+        while (window->pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window->close();
+        }
+
         auto delta_time = clock::now() - time_start;
         time_start = clock::now();
         lag += std::chrono::duration_cast<std::chrono::nanoseconds>(delta_time);
@@ -120,8 +141,15 @@ int myMain() {
         // calculate how close or far we are from the next timestep
         auto alpha = (float)lag.count() / timestep.count();
         auto interpolated_state = interpolate(current_state, previous_state, alpha);
-
+        
         render(interpolated_state);
+
+        window->clear(sf::Color::Black);
+        
+        window->draw(*layerZero);
+        //window->clear(sf::Color::White);
+
+        window->display();
     }
 
     return 0;
