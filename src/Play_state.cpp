@@ -1,4 +1,5 @@
 #include "Play_state.h"
+#include <iostream>
 
 
 Play_state::Play_state(std::string filePath) : Game_state()
@@ -6,6 +7,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
     tmx::Map map;
     if (map.load(filePath))
     {
+        std::cout<<"file loaded successfully\n";
         const auto& layers = map.getLayers();
         //visual_layer = layers[0];
         for (const auto& layer : layers)
@@ -30,7 +32,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
 
 
-                *visual_layer = layer->getLayerAs<tmx::TileLayer>();
+                //*visual_layer = layer->getLayerAs<tmx::TileLayer>();
 
 
 
@@ -46,5 +48,21 @@ Play_state::Play_state(std::string filePath) : Game_state()
             //read out tile set properties, load textures etc...
         }
     }
+}
+
+
+void Play_state::init()
+{
+
+}
+
+void Play_state::update()
+{
+
+}
+
+void Play_state::render()
+{
+
 }
 

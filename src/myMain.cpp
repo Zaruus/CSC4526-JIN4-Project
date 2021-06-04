@@ -14,12 +14,20 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include "Game_state.h"
+#include "Play_state.h"
+
+
 using namespace std;
 
 using namespace std::chrono_literals;
 
 // we use a fixed timestep of 1 / (60 fps) = 16 milliseconds
 constexpr std::chrono::nanoseconds timestep(16ms);
+
+
+std::unique_ptr<Game_state> current_game_state;
+//Game_state* current_game_state;
 
 bool handle_events() {
     // poll for events
@@ -30,11 +38,14 @@ bool handle_events() {
 void init()
 {
     // Initialize your data here
+    current_game_state = make_unique<Play_state>("resources/Terrain-Test.tmx");
+    //current_game_state = new Play_state("resources/Terrain-Test.tmx");
 }
 
 void update(game_state*) {
     // update game logic here
 
+    /*
     tmx::Map map;
     if (map.load("resources/Terrain-Test.tmx"))
     {
@@ -62,7 +73,7 @@ void update(game_state*) {
         {
             //read out tile set properties, load textures etc...
         }
-    }
+    }*/
     
 }
 
@@ -82,7 +93,8 @@ int myMain() {
     using clock = std::chrono::high_resolution_clock;
 
     init();
-
+    
+    
     std::chrono::nanoseconds lag(0ns);
     auto time_start = clock::now();
     bool quit_game = false;
