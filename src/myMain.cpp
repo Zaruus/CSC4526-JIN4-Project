@@ -1,23 +1,5 @@
 #include "myMain.h"
-#include <chrono>
-#include <pugixml.hpp>
-#include <imgui.h>
-#include <imgui-SFML.h>
 
-#include <iostream>
-
-#include <tmxlite/Map.hpp>
-#include <tmxlite/Layer.hpp>
-#include <tmxlite/TileLayer.hpp>
-#include <tmxlite/ObjectGroup.hpp>
-
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Window/Event.hpp>
-
-#include "Game_state.h"
-#include "Play_state.h"
-
-#include "SFMLOrthogonalLayer.h"
 
 
 using namespace std;
@@ -31,6 +13,11 @@ constexpr std::chrono::nanoseconds timestep(16ms);
 std::unique_ptr<Game_state> current_game_state;
 std::unique_ptr<sf::RenderWindow> window;
 std::unique_ptr<MapLayer> layerZero;
+std::unique_ptr<MapLayer> layerOne;
+
+
+
+std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
 
 //Game_state* current_game_state;
 
@@ -43,18 +30,38 @@ bool handle_events() {
 void init()
 {
     // Initialize your data here
-    current_game_state = make_unique<Play_state>("resources/Terrain-Test.tmx");
+    //current_game_state = make_unique<Play_state>("resources/NouvelleMapTest.tmx");
     window = std::make_unique<sf::RenderWindow>(sf::VideoMode(640, 640), "SFML window");
     tmx::Map map;
-    map.load("resources/montest.tmx");
+    map.load("resources/retest.tmx");
     layerZero = make_unique<MapLayer>(map, 0);
+    layerOne = make_unique<MapLayer>(map, 1);
 
-    
-    
+    //On peut récupérer l'id d'une tile, et en récupérant les coordonnées de chaque entitées on pourra déterminer sur quel block elles sont
+    tmx::TileLayer::Tile testTile = layerOne->getTile(8, 0);
+    std::cout << testTile.ID << "\n";
+
+    F f;
+    Enemy e(0, 0);
+    std::pair<F, Enemy> myPair(f, e);
+    enemy_map = std::make_unique<std::vector<std::pair<F, Enemy>>>();
+
+    enemy_map->push_back(myPair);
+
+
+
     //current_game_state = new Play_state("resources/Terrain-Test.tmx");
 }
 
 void update(game_state*) {
+
+    for (int i = 0; i < enemy_map->size(); i++)
+    {
+        std::cout << "x : " << enemy_map->at(i).second.getCoordinates().x << "\n";
+        std::cout << "y : " << enemy_map->at(i).second.getCoordinates().y << "\n";
+    }
+
+
     // update game logic here
 
     /*
@@ -86,7 +93,7 @@ void update(game_state*) {
             //read out tile set properties, load textures etc...
         }
     }*/
-    
+
 }
 
 void render(game_state const&) {
@@ -102,11 +109,12 @@ game_state interpolate(game_state const& current, game_state const& previous, fl
 }
 
 int myMain() {
+    init();
     using clock = std::chrono::high_resolution_clock;
 
-    init();
-    
-    
+
+
+
     std::chrono::nanoseconds lag(0ns);
     auto time_start = clock::now();
     bool quit_game = false;
@@ -115,7 +123,7 @@ int myMain() {
     game_state previous_state;
 
     while (!quit_game)
-   
+
     {
         sf::Event event;
         while (window->pollEvent(event))
@@ -141,11 +149,11 @@ int myMain() {
         // calculate how close or far we are from the next timestep
         auto alpha = (float)lag.count() / timestep.count();
         auto interpolated_state = interpolate(current_state, previous_state, alpha);
-        
+
         render(interpolated_state);
 
         window->clear(sf::Color::Black);
-        
+
         window->draw(*layerZero);
         //window->clear(sf::Color::White);
 
