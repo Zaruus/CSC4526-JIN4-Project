@@ -100,29 +100,28 @@ TEST(TestPairEnemyFsm, testpairage)//On test le fonctionnement qu'aurais une pai
 
 
 
-    F fsm;
-    fsm.add_transitions(transitions);
-    assert(fsm.is_initial());
-    fsm.execute(Triggers::A);
+    //F fsm;
+    //fsm.add_transitions(transitions);
+    //assert(e.is_initial());
+    //fsm.execute(Triggers::A);
 
     e.setMovement(MoveDirection::DOWN);
+    e.triggerMachine(Triggers::A);
+    e.update();
+    e.update();
+    e.update();
+    e.update();
 
-    if (fsm.state() == States::MOVING)
-    {
-        e.move();
-        e.move();
-        e.move();
-        e.move();
-    }
-    fsm.execute(Triggers::B);
+    
+   e.triggerMachine(Triggers::B);
 
-    if (fsm.state() == States::MOVING)
-    {
-        e.move();
-        e.move();
-        e.move();
-        e.move();
-    }
+   e.update();
+   e.update();
+   e.update();
+   e.update();
+
+
+    
 
     EXPECT_EQ(4, e.getCoordinates().y);
 

@@ -8,6 +8,12 @@ Enemy::Enemy(float x, float y)
 
 	speed = 0.2f;
 
+	machine.add_transitions({
+		// from state     , to state      , trigger, guard           , action
+		{ States::Initial , States::MOVING     , Triggers::A    , nullptr         , {} },
+		{ States::MOVING       , States::Final , Triggers::B    ,nullptr , {} },
+		});
+
 }
 
 void Enemy::setSpeed(float newSpeed)
@@ -62,4 +68,28 @@ void Enemy::setMovement(MoveDirection newDirection)
 sf::Vector2f Enemy::getCoordinates() const
 {
 	return this->coordinates;
+}
+
+States Enemy::getState()
+{
+	return this->machine.state();
+}
+
+void Enemy::triggerMachine(Triggers trig)
+{
+	this->machine.execute(trig);
+}
+
+void Enemy::update()
+{
+	switch (machine.state())
+	{
+	case States::MOVING:
+		move();
+		break;
+
+	default:
+
+		break;
+	}
 }

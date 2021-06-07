@@ -17,7 +17,8 @@ std::unique_ptr<MapLayer> layerOne;
 
 
 
-std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
+//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
+std::unique_ptr<std::vector<Enemy>> enemies;
 
 //Game_state* current_game_state;
 
@@ -41,12 +42,15 @@ void init()
     tmx::TileLayer::Tile testTile = layerOne->getTile(8, 0);
     std::cout << testTile.ID << "\n";
 
-    F f;
+    //F f;
     Enemy e(0, 0);
-    std::pair<F, Enemy> myPair(f, e);
-    enemy_map = std::make_unique<std::vector<std::pair<F, Enemy>>>();
 
-    enemy_map->push_back(myPair);
+    enemies = std::make_unique< std::vector<Enemy>>();
+    enemies->push_back(e);
+    //std::pair<F, Enemy> myPair(f, e);
+    //enemy_map = std::make_unique<std::vector<std::pair<F, Enemy>>>();
+
+    //enemy_map->push_back(myPair);
 
 
 
@@ -55,10 +59,10 @@ void init()
 
 void update(game_state*) {
 
-    for (int i = 0; i < enemy_map->size(); i++)
+    for (int i = 0; i < enemies->size(); i++)
     {
-        std::cout << "x : " << enemy_map->at(i).second.getCoordinates().x << "\n";
-        std::cout << "y : " << enemy_map->at(i).second.getCoordinates().y << "\n";
+        std::cout << "x : " << enemies->at(i).getCoordinates().x << "\n";
+        std::cout << "y : " << enemies->at(i).getCoordinates().y << "\n";
     }
 
 

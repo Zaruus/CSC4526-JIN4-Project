@@ -16,6 +16,18 @@
 
 
 enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
+enum class States { Initial, MOVING, Final };
+enum class Triggers { A, B };
+
+
+//using F = FSM::Fsm<States, States::Initial, Triggers>;
+
+/*const std::vector<F::Trans> transitions =
+{
+	// from state     , to state      , trigger, guard           , action
+	{ States::Initial , States::MOVING     , Triggers::A    , nullptr         , {} },
+	{ States::MOVING       , States::Final , Triggers::B    ,nullptr , {} },
+};*/
 
 
 class Enemy
@@ -30,9 +42,18 @@ public:
 
 	void move();
 
+	void update();
+
+	void render();
+
 	void setMovement(MoveDirection newDirection);
 
+	States getState();
+
+	void triggerMachine(Triggers trig);
+
 	sf::Vector2f getCoordinates() const;
+
 
 
 
@@ -46,21 +67,11 @@ private:
 
 	float speed;
 
+	FSM::Fsm<States, States::Initial, Triggers> machine;
 
 
 
 };
 
 
-enum class States { Initial, MOVING, Final };
-enum class Triggers { A, B };
 
-
-using F = FSM::Fsm<States, States::Initial, Triggers>;
-
-const std::vector<F::Trans> transitions =
-{
-	// from state     , to state      , trigger, guard           , action
-	{ States::Initial , States::MOVING     , Triggers::A    , nullptr         , {} },
-	{ States::MOVING       , States::Final , Triggers::B    ,nullptr , {} },
-}; 
