@@ -71,7 +71,7 @@ TEST(TestTMX, CheckSecondLayerTileID)
 
 TEST(TestEnemy, testClass)
 {
-    Enemy e(0, 0);
+    Enemy e(0, 0,1,1);
     e.setSpeed(1);
 
 
@@ -88,12 +88,8 @@ TEST(TestEnemy, testClass)
 
 TEST(TestPairEnemyFsm, testpairage)//On test le fonctionnement qu'aurais une pair fsm/enemy
 {
-    Enemy e(0, 0);
+    Enemy e(0, 0,1,1);
     e.setSpeed(1);
-
-
-
-
 
     //using F = FSM::Fsm<States, States::Initial, Triggers>;
 
@@ -130,8 +126,32 @@ TEST(TestPairEnemyFsm, testpairage)//On test le fonctionnement qu'aurais une pai
     //fsm.reset();
     //assert(fsm.is_initial());
 
+}
+
+TEST(TestEnemy, testaffichage)
+{
+    sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
+    Enemy e(0, 0, 200, 200);
+   
+    
 
 
-
+    while (window.isOpen())
+    {
+        // Event processing
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // Request for closing the window
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        // Clear the whole window before rendering a new frame
+        window.clear();
+        // Draw some graphical entities
+        e.render(window);
+        // End the current frame and display its contents on screen
+        window.display();
+    }
 }
 

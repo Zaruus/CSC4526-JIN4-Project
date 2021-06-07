@@ -12,6 +12,10 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
+
 
 
 
@@ -34,7 +38,7 @@ class Enemy
 {
 public:
 
-	Enemy(float x, float y);
+	Enemy(float x, float y, float width, float height);
 
 	void knock();
 
@@ -44,13 +48,15 @@ public:
 
 	void update();
 
-	void render();
+	void render(sf::RenderTarget& window);
 
 	void setMovement(MoveDirection newDirection);
 
 	States getState();
 
 	void triggerMachine(Triggers trig);
+
+	sf::Vector2f getSize();
 
 	sf::Vector2f getCoordinates() const;
 
@@ -64,10 +70,19 @@ private:
 
 	sf::Vector2f movement;
 	MoveDirection direction;
+	sf::Vector2f size;
 
 	float speed;
 
+	//std::unique_ptr<FSM::Fsm<States, States::Initial, Triggers>> machine;
 	FSM::Fsm<States, States::Initial, Triggers> machine;
+	sf::RectangleShape image;
+	
+	//std::unique_ptr<sf::RectangleShape> images = std::make_unique<sf::RectangleShape>(size);
+
+	//sf::RectangleShape* image;
+
+	//std::vector<std::unique_ptr<sf::RectangleShape>> images;
 
 
 

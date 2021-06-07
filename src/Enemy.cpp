@@ -1,18 +1,31 @@
 #include "Enemy.h"
 
 
-Enemy::Enemy(float x, float y)
+Enemy::Enemy(float x, float y,float width,float height)
 {
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
 
 	speed = 0.2f;
 
+	//machine = std::make_unique<FSM::Fsm<States, States::Initial, Triggers>>();
+
 	machine.add_transitions({
 		// from state     , to state      , trigger, guard           , action
 		{ States::Initial , States::MOVING     , Triggers::A    , nullptr         , {} },
 		{ States::MOVING       , States::Final , Triggers::B    ,nullptr , {} },
 		});
+
+	sf::Vector2f size(width,height);
+	this->size = size;
+	sf::RectangleShape tmp(size);
+
+	image = tmp;
+
+	
+	//this->image->setSize(size);
+	
+	
 
 }
 
@@ -92,4 +105,19 @@ void Enemy::update()
 
 		break;
 	}
+}
+
+
+void Enemy::render(sf::RenderTarget& window)
+{
+	sf::Vector2f renderCoords(coordinates.x-size.x/2,coordinates.y-size.y/2);
+	
+	image.setPosition(renderCoords);
+	window.draw(image);
+
+}
+
+sf::Vector2f Enemy::getSize()
+{
+	return this->size;
 }
