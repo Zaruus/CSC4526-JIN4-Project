@@ -48,7 +48,10 @@ private:
 
 
 	//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
-	std::unique_ptr<std::vector<Enemy>> enemies;
-	std::unique_ptr<std::vector<Tower>> towers;
+	//std::unique_ptr<std::vector<Enemy>> enemies;
+	//std::unique_ptr<std::vector<Tower>> towers;
+	std::vector<std::unique_ptr<Enemy>> enemies;
+	std::vector<std::unique_ptr<Tower>> towers;
+
 
 };

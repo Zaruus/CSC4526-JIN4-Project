@@ -18,8 +18,10 @@ class Tower
 {
 public:
 	Tower(float x, float y, Strategy strat);
-	void update();
+	void update(std::vector<std::unique_ptr<Enemy>>& enemies);
 	void render(sf::RenderTarget& window);
+
+
 	TowerStates getState();
 
 	void triggerMachine(TowerTriggers trig);
@@ -42,7 +44,7 @@ private:
 
 	//std::unique_ptr<FSM::Fsm<States, States::Initial, Triggers>> machine;
 	FSM::Fsm<TowerStates, TowerStates::Initial, TowerTriggers> machine;
-	sf::RectangleShape tower_image;
+	//sf::RectangleShape tower_image;
 
 	AttackStrategy* strategy;
 };

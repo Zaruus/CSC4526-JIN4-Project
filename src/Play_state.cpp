@@ -32,24 +32,18 @@ Play_state::Play_state(std::string filePath) : Game_state()
     //On peut récupérer l'id d'une tile, et en récupérant les coordonnées de chaque entitées on pourra déterminer sur quel block elles sont
 
 
-    //F f;
-    Enemy e(spawnBlock.x * blockSize + 16, spawnBlock.y * blockSize + 16, 20, 20);
+  
+    auto e = std::make_unique<Enemy>(spawnBlock.x * blockSize + 16, spawnBlock.y * blockSize + 16, 20, 20);
 
-    enemies = std::make_unique< std::vector<Enemy>>();
-    enemies->push_back(e);
+    enemies.push_back(std::move(e));
 
-    Tower t(100.0, 100.0, Strategy::SingleTargetStrategy);
+    
 
-    towers = std::make_unique<std::vector<Tower>>();
-    towers->push_back(t);
-    //std::pair<F, Enemy> myPair(f, e);
-    //enemy_map = std::make_unique<std::vector<std::pair<F, Enemy>>>();
+    auto t = std::make_unique<Tower>(200,200, Strategy::SingleTargetStrategy);
 
-    //enemy_map->push_back(myPair);
-
-
-
-    //current_game_state = new Play_state("resources/Terrain-Test.tmx");
+   
+    towers.push_back(std::move(t));
+    
 }
 
 
@@ -62,49 +56,60 @@ void Play_state::update()
 {
     if (!isLost && !isWon)
     {
-        for (auto e = enemies->begin(); e != enemies->end(); e++)
+        for (int i = 0;i<enemies.size();i++)
         {
 
-
-            switch (layerOne->getTile((e->getCoordinates().x + (e->getSize().x / 2)) / blockSize, (e->getCoordinates().y + (e->getSize().y / 2)) / blockSize).ID)
+            if (enemies[i]->getState() == States::Dead)
             {
-            case 3:
-                if (e->getState() != States::MOVING)
+                enemies.erase(enemies.begin() + i);
+            }
+            else
+            {
+                switch (layerOne->getTile((enemies[i]->getCoordinates().x + (enemies[i]->getSize().x / 2)) / blockSize, (enemies[i]->getCoordinates().y + (enemies[i]->getSize().y / 2)) / blockSize).ID)
                 {
-                    e->triggerMachine(Triggers::A);
+                case 3:
+                    if (enemies[i]->getState() != States::MOVING)
+                    {
+                        enemies[i]->triggerMachine(Triggers::A);
 
+                    }
+                    enemies[i]->setMovement(MoveDirection::UP);
+                    break;
+                case 4:
+                    if (enemies[i]->getState() != States::MOVING)
+                    {
+                        enemies[i]->triggerMachine(Triggers::A);
+
+                    }
+                    enemies[i]->setMovement(MoveDirection::UP);
+                    break;
+                case 5:
+                    enemies[i]->triggerMachine(Triggers::B);
+                    isLost = true;
+                    std::cout << "uLOST\n";
+                    break;
+
+                case 7:
+                    enemies[i]->setMovement(MoveDirection::RIGHT);
+                    break;
+                case 8:
+                    enemies[i]->setMovement(MoveDirection::LEFT);
+                    break;
+                default:
+
+                    break;
                 }
-                e->setMovement(MoveDirection::UP);
-                break;
-            case 4:
-                if (e->getState() != States::MOVING)
-                {
-                    e->triggerMachine(Triggers::A);
 
-                }
-                e->setMovement(MoveDirection::UP);
-                break;
-            case 5:
-                e->triggerMachine(Triggers::B);
-                isLost = true;
-                std::cout << "uLOST\n";
-                break;
 
-            case 7:
-                e->setMovement(MoveDirection::RIGHT);
-                break;
-            case 8:
-                e->setMovement(MoveDirection::LEFT);
-                break;
-            default:
-
-                break;
+                enemies[i]->update();
             }
 
+            
 
-            e->update();
-            std::cout << "x : " << enemies->at(0).getCoordinates().x << "\n";
-            std::cout << "y : " << enemies->at(0).getCoordinates().y << "\n";
+
+            
+            towers[i]->update(enemies);
+            
         }
 
 
@@ -114,12 +119,23 @@ void Play_state::update()
 void Play_state::render(sf::RenderWindow& window)
 {
     window.draw(*layerZero);
-    for (int i = 0; i < enemies->size(); i++)
+
+    for (int i = 0; i < towers.size(); i++)
     {
-        enemies->at(i).render(window);
+        towers[i]->render(window);
+
     }
+
+    for (int i = 0; i < enemies.size(); i++)
+    {
+        enemies[i]->render(window);
+    }
+
+    
+
+
    //enemies->at(0).render(window);
-    std::cout << enemies->at(0).getCoordinates().x << "test render\n";
+    //std::cout << enemies[i].getCoordinates().x << "test render\n";
     // render stuff here
 }
 

@@ -7,9 +7,10 @@ Tower::Tower(float x, float y,Strategy strat)
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
 
-	sf::Vector2f size(20, 20) ;
+	sf::Vector2f size(32, 32) ;
 	sf::RectangleShape tmp(size);
-	tower_image = tmp;
+	image = tmp;
+    image.setFillColor(sf::Color::Black);
 
 	range = 100;
 
@@ -57,6 +58,7 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
             && sqrt(pow(this->coordinates.x - e->getCoordinates().x, 2) + pow(this->coordinates.y - e->getCoordinates().y, 2)) < range)
         {
             targets.push_back(e.get());
+            std::cout << "added enemy\n";
         }
     }
 
@@ -65,9 +67,10 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
     {
         for (int i = 0 ; i < targets.size(); i++)
         {
-            if (sqrt(pow(this->coordinates.x - targets[i]->getCoordinates().x, 2) + pow(this->coordinates.y - targets[i]->getCoordinates().y, 2)) > range)
+            if (sqrt(pow(this->coordinates.x - targets[i]->getCoordinates().x, 2) + pow(this->coordinates.y - targets[i]->getCoordinates().y, 2)) > range || targets[i]->getState() == States::Dead)
             {
                 targets.erase(targets.begin() + i);
+                std::cout << "removed enemy from targets\n";
             }
         }
     }
@@ -81,4 +84,57 @@ std::vector<Enemy*> Tower::getTargets() const
 void Tower::addTarget(std::unique_ptr<Enemy> e)
 {
     targets.push_back(e.get());
+}
+
+void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
+{
+    switch (machine.state())
+    {
+    case TowerStates::Initial:
+        machine.execute(TowerTriggers::A);
+        break;
+    case TowerStates::Aiming:
+        if (targets.size() != 0)
+        {
+            machine.execute(TowerTriggers::B);
+        }
+        else
+        {
+            aim(enemies);
+            std::cout << "aiming\n";
+        }
+
+        break;
+    case TowerStates::Shooting:
+        if (targets.size() == 0)
+        {
+            machine.execute(TowerTriggers::C);
+        }
+        else
+        {
+            if (strategy->attack(targets))
+            {
+                machine.execute(TowerTriggers::C);
+            }
+            std::cout << "attacking\n";
+        }
+        break;
+
+    case TowerStates::Final:
+
+        break;
+
+    default:
+
+        break;
+    }
+}
+
+
+void Tower::render(sf::RenderTarget& window)
+{
+    sf::Vector2f renderCoords(coordinates.x, coordinates.y);
+
+    image.setPosition(renderCoords);
+    window.draw(image);
 }
