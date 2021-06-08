@@ -1,7 +1,8 @@
 #include "Tower.h"
 
 
-Tower::Tower(float x, float y)
+
+Tower::Tower(float x, float y,Strategy strat)
 {
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
@@ -11,6 +12,14 @@ Tower::Tower(float x, float y)
 	tower_image = tmp;
 
 	range = 100;
+
+    switch (strat)
+    {
+    case Strategy::SingleTargetStrategy:
+        strategy = new SingleTargetStrategy();
+    default:
+        strategy = new SingleTargetStrategy();
+    }
 
 	
 

@@ -159,7 +159,7 @@ TEST(TestEnemy, testaffichage)
 
 TEST(TestTower, testTargets)
 {
-    Tower* tower = new Tower(0, 0);
+    Tower* tower = new Tower(0, 0,Strategy::SingleTargetStrategy);
     std::vector<std::unique_ptr<Enemy>> enemies;
 
     tower->addTarget(std::make_unique<Enemy>(200, 200, 200, 200)); //Ennemi dans la liste targets, en-dehors de la range

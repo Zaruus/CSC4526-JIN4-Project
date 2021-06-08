@@ -37,6 +37,11 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
     enemies = std::make_unique< std::vector<Enemy>>();
     enemies->push_back(e);
+
+    Tower t(100.0, 100.0, Strategy::SingleTargetStrategy);
+
+    towers = std::make_unique<std::vector<Tower>>();
+    towers->push_back(t);
     //std::pair<F, Enemy> myPair(f, e);
     //enemy_map = std::make_unique<std::vector<std::pair<F, Enemy>>>();
 

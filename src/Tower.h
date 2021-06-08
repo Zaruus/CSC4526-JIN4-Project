@@ -2,6 +2,7 @@
 
 #include "Enemy.h"
 #include "AttackStrategy.h"
+#include "SingleTargetStrategy.h"
 
 
 
@@ -10,12 +11,13 @@
 //enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
 enum class TowerStates { Initial, Aiming,Shooting, Final };
 enum class TowerTriggers { A, B,C,D,E };
+enum class Strategy { SingleTargetStrategy };
 
 
 class Tower
 {
 public:
-	Tower(float x, float y);
+	Tower(float x, float y, Strategy strat);
 	void update();
 	void render(sf::RenderTarget& window);
 	TowerStates getState();
@@ -42,5 +44,5 @@ private:
 	FSM::Fsm<TowerStates, TowerStates::Initial, TowerTriggers> machine;
 	sf::RectangleShape tower_image;
 
-	std::unique_ptr<AttackStrategy> strategy;
+	AttackStrategy* strategy;
 };

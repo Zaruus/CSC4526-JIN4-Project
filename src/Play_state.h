@@ -12,6 +12,7 @@
 
 #include "SFMLOrthogonalLayer.h"
 #include "Enemy.h"
+#include "Tower.h"
 
 
 
@@ -48,5 +49,6 @@ private:
 
 	//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
 	std::unique_ptr<std::vector<Enemy>> enemies;
+	std::unique_ptr<std::vector<Tower>> towers;
 
 };
