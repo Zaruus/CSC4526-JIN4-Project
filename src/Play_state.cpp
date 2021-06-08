@@ -19,11 +19,13 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
     pugi::xml_document doc;
 
-    pugi::xml_parse_result result = doc.load_file("param.xml");
+    pugi::xml_parse_result result = doc.load_file("resources/param.xml");
 
-    nbEnemies = atoi(doc.child("Param").attribute("nbEnemies").value());
-    deltaEnemies = atoi(doc.child("Param").attribute("deltaEnemies").value());
-    nbEnemiesForTower = atoi(doc.child("Param").attribute("nbEnemiesForTower").value());
+    nbEnemies = doc.child("Param").attribute("nbEnemies").as_int();
+    deltaEnemies = doc.child("Param").attribute("deltaEnemies").as_int();
+    buildTowerResource = doc.child("Param").attribute("buildTowerResource").as_int();
+
+    std::cout <<"value  :"<< buildTowerResource << "\n";
 
     for (int i = 0; i < mapSize.x; i++)
     {
@@ -54,7 +56,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
     towers.push_back(std::move(t));
 
     wantsToBuild = false;
-    buildResources = 10;
+    buildResources = 12;
 
     sf::RectangleShape tmp(*(new sf::Vector2f(32,32)));
     //tmp.setPosition(200, 300);
@@ -86,7 +88,19 @@ void Play_state::update()
                     canBuildHere = false;
                 }
             }
-            if (canBuildHere)
+            float x = possibleBuild.getPosition().x - (int)possibleBuild.getPosition().x % 32;
+           
+            float y = possibleBuild.getPosition().y - (int)possibleBuild.getPosition().y % 32;
+
+            x = (int)(x / 32);
+            x = (x > 15) ? 15 : x;
+            y = (int)(y / 32);
+            y = (y > 15) ? 15 : y;
+            std::cout <<"x :"<< x<<"\n";
+            std::cout << "y :" << y << "\n";
+
+            //
+            if (canBuildHere && layerOne->getTile(x, y).ID != 3 && layerOne->getTile(x, y).ID != 4 && layerOne->getTile(x, y).ID != 5 && layerOne->getTile(x, y).ID != 7 && layerOne->getTile(x, y).ID != 8)
             {
                 buildTower();
             }
@@ -184,7 +198,9 @@ void Play_state::render(sf::RenderWindow& window)
     if (wantsToBuild)
     {
         float x = (sf::Mouse::getPosition(window).x) - (sf::Mouse::getPosition(window).x)%32;
+        x = (x > 32 * 15) ? 32 * 15 : x;
         float y = sf::Mouse::getPosition(window).y -sf::Mouse::getPosition(window).y%32;
+        y = (y > 32 * 15) ? 32 * 15 : y;
         possibleBuild.setPosition(*(new sf::Vector2f(x,y)));
         window.draw(possibleBuild);
         
@@ -205,10 +221,10 @@ void Play_state::switchWantsToBuild()
 
 void Play_state::buildTower()
 {
-    if (buildResources >= 5)
+    if (buildResources >= buildTowerResource)
     {
         towers.push_back(towers[0]->clone(possibleBuild.getPosition().x, possibleBuild.getPosition().y));
-        buildResources -= 5;
+        buildResources -= buildTowerResource;
     }
     
 }

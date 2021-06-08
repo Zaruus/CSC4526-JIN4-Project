@@ -51,7 +51,7 @@ private:
 
 	int nbEnemies;
 	int deltaEnemies;
-	int nbEnemiesForTower;
+	int buildTowerResource;
 
 	//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
 	//std::unique_ptr<std::vector<Enemy>> enemies;
