@@ -2,6 +2,7 @@
 #include <iostream>
 #include <pugixml.hpp>
 
+using namespace std::chrono_literals;
 
 Play_state::Play_state(std::string filePath) : Game_state()
 {
@@ -19,11 +20,13 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
     pugi::xml_document doc;
 
-    pugi::xml_parse_result result = doc.load_file("param.xml");
+    pugi::xml_parse_result result = doc.load_file("resources/param.xml");
 
-    nbEnemies = atoi(doc.child("Param").attribute("nbEnemies").value());
-    deltaEnemies = atoi(doc.child("Param").attribute("deltaEnemies").value());
-    nbEnemiesForTower = atoi(doc.child("Param").attribute("nbEnemiesForTower").value());
+    nbEnemies = doc.child("Param").attribute("nbEnemies").as_int();
+    deltaEnemies = doc.child("Param").attribute("deltaEnemies").as_int();
+    buildTowerResource = doc.child("Param").attribute("buildTowerResource").as_int();
+
+    time_since_last_spawn = std::chrono::high_resolution_clock::now();
 
     for (int i = 0; i < mapSize.x; i++)
     {
@@ -67,10 +70,10 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
 void Play_state::init()
 {
-
+    
 }
 
-void Play_state::update()
+void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clock> time_start)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
@@ -148,8 +151,12 @@ void Play_state::update()
                 enemies[i]->update();
             }
 
-            
-
+            if (time_since_last_spawn <= time_start)
+            {
+                auto e = std::make_unique<Enemy>(spawnBlock.x * blockSize + 16, spawnBlock.y * blockSize + 16, 20, 20);
+                enemies.push_back(std::move(e));
+                time_since_last_spawn = time_start + std::chrono::seconds(2);
+            }
 
             
             

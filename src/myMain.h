@@ -50,6 +50,6 @@ struct game_state {
 
 int myMain();
 bool handle_events();
-void update(game_state*);
+void update(game_state*, std::chrono::time_point<std::chrono::high_resolution_clock> time_start);
 void render(game_state const&);
 game_state interpolate(game_state const& current, game_state const& previous, float alpha);

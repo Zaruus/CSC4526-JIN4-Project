@@ -14,14 +14,13 @@
 #include "Enemy.h"
 #include "Tower.h"
 
-
 enum class TowerType { SingleTarget, TwoTargets};
 
 class Play_state : public Game_state
 {
 public:
 	 void render(sf::RenderWindow& window) override;
-	 void update() override;
+	 void update(std::chrono::time_point<std::chrono::high_resolution_clock> time_start) override;
 	 void init() override;
 	Play_state();
 	Play_state(std::string filePath); // On ouvre le fichier tmx donné par filePath et on en sort les informations du niveau
@@ -51,7 +50,7 @@ private:
 
 	int nbEnemies;
 	int deltaEnemies;
-	int nbEnemiesForTower;
+	int buildTowerResource;
 
 	//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
 	//std::unique_ptr<std::vector<Enemy>> enemies;
@@ -66,6 +65,8 @@ private:
 
 
 	TowerType buildType;
+
+	std::chrono::time_point<std::chrono::high_resolution_clock> time_since_last_spawn;
 
 
 };

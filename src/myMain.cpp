@@ -43,11 +43,9 @@ void init()
     
 }
 
-void update(game_state*) {
+void update(game_state*, std::chrono::time_point<std::chrono::high_resolution_clock> time_start) {
 
-    current_game_state->update();
-    
-
+    current_game_state->update(time_start);
    
 
 }
@@ -109,7 +107,7 @@ int myMain() {
             lag -= timestep;
 
             previous_state = current_state;
-            update(&current_state); // update at a fixed rate each time
+            update(&current_state, clock::now()); // update at a fixed rate each time
         }
 
         // calculate how close or far we are from the next timestep
