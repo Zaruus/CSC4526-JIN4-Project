@@ -9,13 +9,11 @@ SingleTargetStrategy::SingleTargetStrategy() : AttackStrategy()
 
 bool SingleTargetStrategy::attack(std::vector<Enemy*>& targets)
 {
-    /*while (!targets.empty()) {
-        targets[0]->attack(5);
-    }*/
+   //Inflige 0.5 points de dégats à la première cible disponible
 
     if (!targets.empty())
     {
-        if (targets[0]->attack(5) < 0)
+        if (targets[0]->attack(0.5) < 0)
         {
             return true;
         }

@@ -10,25 +10,9 @@ using namespace std::chrono_literals;
 constexpr std::chrono::nanoseconds timestep(16ms);
 
 
-std::unique_ptr<Game_state> current_game_state;
+std::unique_ptr<Game_state> current_game_state;             
 std::unique_ptr<sf::RenderWindow> window;
-/*
-//sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
-std::unique_ptr<MapLayer> layerZero;
-std::unique_ptr<MapLayer> layerOne;
 
-sf::Vector2f mapSize;
-sf::Vector2f spawnBlock;
-
-bool isWon = false;
-bool isLost = false;
-
-int blockSize;
-
-//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
-std::unique_ptr<std::vector<Enemy>> enemies;*/
-
-//Game_state* current_game_state;
 
 bool handle_events() {
     // poll for events
@@ -38,7 +22,7 @@ bool handle_events() {
 
 void init()
 {
-    window = std::make_unique<sf::RenderWindow>(sf::VideoMode(640, 640), "SFML window");
+    window = std::make_unique<sf::RenderWindow>(sf::VideoMode(16*32, 16*32), "SFML window");
     current_game_state = std::make_unique<Play_state>("resources/map1.tmx");
     
 }
@@ -53,12 +37,7 @@ void update(game_state*, std::chrono::time_point<std::chrono::high_resolution_cl
 void render(game_state const&) {
     current_game_state->render(*window);
 
-    /*for (int i = 0; i < enemies->size(); i++)
-    {
-        enemies->at(i).render(*window);
-    }
-    enemies->at(0).render(*window);
-    std::cout << enemies->at(0).getCoordinates().x << "test render\n";*/
+    
     // render stuff here
 }
 
@@ -124,16 +103,11 @@ int myMain() {
 
         
         render(interpolated_state);
-        //window->clear(sf::Color::White);
+      
 
         window->display();
 
-        /*if (isLost)
-        {
-            event.type = sf::Event::Closed;
-            //window->
-            quit_game = true;
-        }*/
+       
 
         
        

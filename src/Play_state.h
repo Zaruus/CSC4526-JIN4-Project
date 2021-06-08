@@ -13,6 +13,7 @@
 #include "SFMLOrthogonalLayer.h"
 #include "Enemy.h"
 #include "Tower.h"
+#include "SFML/Graphics/Text.hpp";
 
 enum class TowerType { SingleTarget, TwoTargets};
 
@@ -52,21 +53,21 @@ private:
 	int deltaEnemies;
 	int buildTowerResource;
 
-	//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
-	//std::unique_ptr<std::vector<Enemy>> enemies;
-	//std::unique_ptr<std::vector<Tower>> towers;
+	
 	std::vector<std::unique_ptr<Enemy>> enemies;
 	std::vector<std::unique_ptr<Tower>> towers;
 
 	bool wantsToBuild;
 	int buildResources;
 
+
+	//variables pour la construction de towers
 	sf::RectangleShape possibleBuild;
-
-
 	TowerType buildType;
 
+	//temps entre chaque spawn d'ennemi
 	std::chrono::time_point<std::chrono::high_resolution_clock> time_since_last_spawn;
+	
 
 
 };

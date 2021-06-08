@@ -24,14 +24,7 @@ enum class States { Initial, MOVING, Final,Dead };
 enum class Triggers { A, B,C,D,E };
 
 
-//using F = FSM::Fsm<States, States::Initial, Triggers>;
 
-/*const std::vector<F::Trans> transitions =
-{
-	// from state     , to state      , trigger, guard           , action
-	{ States::Initial , States::MOVING     , Triggers::A    , nullptr         , {} },
-	{ States::MOVING       , States::Final , Triggers::B    ,nullptr , {} },
-};*/
 
 
 class Enemy
@@ -62,9 +55,9 @@ public:
 
 	sf::Vector2f getCoordinates() const;
 
-	Enemy clone(float x,float y);
+	std::unique_ptr<Enemy> clone(float x,float y);
 
-	int attack(int damage);
+	int attack(float damage);
 
 	int getLife();
 
@@ -82,17 +75,13 @@ private:
 
 	float speed;
 
-	//std::unique_ptr<FSM::Fsm<States, States::Initial, Triggers>> machine;
+	
 	FSM::Fsm<States, States::Initial, Triggers> machine;
 	sf::RectangleShape image;
 
-	int life;
+	float life;
 	
-	//std::unique_ptr<sf::RectangleShape> images = std::make_unique<sf::RectangleShape>(size);
-
-	//sf::RectangleShape* image;
-
-	//std::vector<std::unique_ptr<sf::RectangleShape>> images;
+	
 
 
 

@@ -3,6 +3,7 @@
 #include "Enemy.h"
 #include "AttackStrategy.h"
 #include "SingleTargetStrategy.h"
+#include "SFML/Graphics/CircleShape.hpp"
 
 
 
@@ -52,4 +53,5 @@ private:
 
 	AttackStrategy* strategy;
 	Strategy idStrategy;
+	sf::CircleShape rangeCircle;
 };

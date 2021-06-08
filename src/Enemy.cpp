@@ -3,12 +3,13 @@
 
 Enemy::Enemy(float x, float y,float width,float height)
 {
+
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
 
 	speed = 0.2f;
 
-	//machine = std::make_unique<FSM::Fsm<States, States::Initial, Triggers>>();
+	
 
 	machine.add_transitions({
 		// from state     , to state      , trigger, guard           , action
@@ -28,7 +29,7 @@ Enemy::Enemy(float x, float y,float width,float height)
 	life = 100;
 
 	
-	//this->image->setSize(size);
+	
 	
 	
 
@@ -129,15 +130,17 @@ sf::Vector2f Enemy::getSize()
 	return this->size;
 }
 
-Enemy Enemy::clone(float x,float y)
+std::unique_ptr<Enemy> Enemy::clone(float x,float y)
 {
-	Enemy clone(x, y, this->size.x, this->size.y);
+	auto tmp = std::make_unique<Enemy>(x, y, this->size.x, this->size.y);
+	
 
-	return clone;
+	return std::move(tmp);
 }
 
-int Enemy::attack(int damage)
+int Enemy::attack(float damage)
 {
+	//On enlève de la vie à l'instance et on la passe en State::Dead via un trigger si besoin
 	life -= damage;
 	if (life <= 0)
 	{

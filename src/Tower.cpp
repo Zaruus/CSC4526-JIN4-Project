@@ -4,15 +4,26 @@
 
 Tower::Tower(float x, float y,Strategy strat)
 {
+
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
 
 	sf::Vector2f size(32, 32) ;
 	sf::RectangleShape tmp(size);
+    
+
 	image = tmp;
     image.setFillColor(sf::Color::Black);
 
 	range = 100;
+
+    sf::CircleShape tmpc(range,20);
+    tmpc.setFillColor(sf::Color::Transparent);
+    tmpc.setOutlineThickness(2);
+    tmpc.setOutlineColor(sf::Color::Blue);
+    tmpc.setOrigin(range, range);
+
+    rangeCircle = tmpc;
 
     idStrategy = strat;
 
@@ -26,7 +37,7 @@ Tower::Tower(float x, float y,Strategy strat)
 
 	
 
-	//machine = std::make_unique<FSM::Fsm<States, States::Initial, Triggers>>();
+	
 
 	machine.add_transitions({
 		// from state     , to state      , trigger, guard           , action
@@ -60,7 +71,7 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
             && sqrt(pow(this->coordinates.x - e->getCoordinates().x, 2) + pow(this->coordinates.y - e->getCoordinates().y, 2)) < range)
         {
             targets.push_back(e.get());
-            std::cout << "added enemy\n";
+            
         }
     }
 
@@ -72,7 +83,7 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
             if (sqrt(pow(this->coordinates.x - targets[i]->getCoordinates().x, 2) + pow(this->coordinates.y - targets[i]->getCoordinates().y, 2)) > range || targets[i]->getState() == States::Dead)
             {
                 targets.erase(targets.begin() + i);
-                std::cout << "removed enemy from targets\n";
+                
             }
         }
     }
@@ -103,7 +114,7 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
         else
         {
             aim(enemies);
-            std::cout << "aiming\n";
+            
         }
 
         break;
@@ -118,7 +129,7 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
             {
                 machine.execute(TowerTriggers::C);
                 targets.erase(targets.begin());
-                std::cout << "attacking\n";
+               
             }
             
         }
@@ -138,9 +149,14 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
 void Tower::render(sf::RenderTarget& window)
 {
     sf::Vector2f renderCoords(coordinates.x, coordinates.y);
+    sf::Vector2f renderCoords2(coordinates.x+16, coordinates.y+16);
+    
 
     image.setPosition(renderCoords);
+    rangeCircle.setPosition(renderCoords2);
+    
     window.draw(image);
+    window.draw(rangeCircle);
 }
 
 sf::Vector2f Tower::getCoordinates()
