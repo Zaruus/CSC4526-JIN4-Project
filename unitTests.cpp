@@ -21,6 +21,7 @@
 
 #include "SFMLOrthogonalLayer.h"
 
+#include "Tower.h"
 
 
 
@@ -155,3 +156,19 @@ TEST(TestEnemy, testaffichage)
     }
 }
 
+
+TEST(TestTower, testTargets)
+{
+    Tower* tower = new Tower(0, 0);
+    std::vector<std::unique_ptr<Enemy>> enemies;
+
+    tower->addTarget(std::make_unique<Enemy>(200, 200, 200, 200)); //Ennemi dans la liste targets, en-dehors de la range
+
+    enemies.push_back(std::make_unique<Enemy>(500, 500, 200, 200)); //Ennemi hors de la liste targets, en-dehors de la range
+    enemies.push_back(std::make_unique<Enemy>(10, 10, 200, 200)); //Ennemi hors de la liste targets, dans la range
+
+    tower->aim(enemies);
+
+    EXPECT_EQ(tower->getTargets().size(), 1);
+    EXPECT_EQ(enemies[1].get(), tower->getTargets()[0]);
+}

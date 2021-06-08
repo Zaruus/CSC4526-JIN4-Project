@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Enemy.h"
+#include "AttackStrategy.h"
 
 
 
@@ -21,7 +22,10 @@ public:
 
 	void triggerMachine(TowerTriggers trig);
 
-	void aim(std::vector<std::unique_ptr<Enemy>> enemies);
+	void aim(const std::vector<std::unique_ptr<Enemy>>& enemies);
+
+	std::vector<Enemy*> getTargets() const;
+	void addTarget(std::unique_ptr<Enemy> e);
 	
 
 
@@ -37,4 +41,6 @@ private:
 	//std::unique_ptr<FSM::Fsm<States, States::Initial, Triggers>> machine;
 	FSM::Fsm<TowerStates, TowerStates::Initial, TowerTriggers> machine;
 	sf::RectangleShape tower_image;
+
+	std::unique_ptr<AttackStrategy> strategy;
 };

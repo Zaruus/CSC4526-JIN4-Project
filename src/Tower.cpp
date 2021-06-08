@@ -36,24 +36,40 @@ void Tower::triggerMachine(TowerTriggers trig)
 	machine.execute(trig);
 }
 
-void Tower::aim(std::vector<std::unique_ptr<Enemy>> enemies)
+
+
+
+void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
 {
-	if (targets.size() != 0)
-	{
-		for (int i =0;i<targets.size();i++)
-		{
-			if (abs(sqrt((this->coordinates.x - targets[i]->getCoordinates().x) * (this->coordinates.x - targets[i]->getCoordinates().x) + (this->coordinates.y - targets[i]->getCoordinates().y) * (this->coordinates.y - targets[i]->getCoordinates().y))) > 0)
-			{
-				targets.erase(targets.begin() + i);
-			}
-		}
-	}
-	
+    //Si l'ennemi est dans la range de la tour, il est ajouté à sa liste de cibles
+    for (auto& e : enemies)
+    {
+        if ((targets.empty() || std::find(targets.begin(), targets.end(), e.get()) == targets.end())
+            && sqrt(pow(this->coordinates.x - e->getCoordinates().x, 2) + pow(this->coordinates.y - e->getCoordinates().y, 2)) < range)
+        {
+            targets.push_back(e.get());
+        }
+    }
 
+    //Si l'ennemi est trop loin, il sort de la liste des cibles de la tour
+    if (!targets.empty())
+    {
+        for (int i = 0 ; i < targets.size(); i++)
+        {
+            if (sqrt(pow(this->coordinates.x - targets[i]->getCoordinates().x, 2) + pow(this->coordinates.y - targets[i]->getCoordinates().y, 2)) > range)
+            {
+                targets.erase(targets.begin() + i);
+            }
+        }
+    }
+}
 
+std::vector<Enemy*> Tower::getTargets() const
+{
+    return this->targets;
+}
 
-	for (auto e = enemies.begin(); e != enemies.end(); e++)
-	{
-
-	}
+void Tower::addTarget(std::unique_ptr<Enemy> e)
+{
+    targets.push_back(e.get());
 }
