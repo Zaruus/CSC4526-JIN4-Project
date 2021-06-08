@@ -175,7 +175,7 @@ void Play_state::update()
         }
         
 
-
+        std::cout<<" size :" << enemies.size() << "\n";
     }
 }
 
