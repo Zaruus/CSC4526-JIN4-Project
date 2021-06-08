@@ -32,10 +32,13 @@ Game Loop
 -Design Patterns-
 
 State
+
 Strategy
+
 Prototype
 
 -Auteurs-
 
 Quentin Moreels
+
 Pierre De La Ville Montbazon
