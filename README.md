@@ -22,8 +22,8 @@ Le fait de tuer un manifestant vous rapporte 3$.
 -Bibliothèques externes utilisées-
 
 Finite State Machine (cppfsm)
-pugixml
-Tiled map editor et tmxlite
+ / pugixml
+ / Tiled map editor et tmxlite
 
 -Game Pattern-
 
@@ -32,10 +32,10 @@ Game Loop
 -Design Patterns-
 
 State
-Strategy
-Prototype
+ / Strategy
+ / Prototype
 
 -Auteurs-
 
 Quentin Moreels
-Pierre De La Ville Montbazon
+ / Pierre De La Ville Montbazon
