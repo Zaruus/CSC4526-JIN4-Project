@@ -49,7 +49,9 @@ private:
 
 	int blockSize;
 
-
+	int nbEnemies;
+	int deltaEnemies;
+	int nbEnemiesForTower;
 
 	//std::unique_ptr<std::vector<std::pair<F, Enemy>>> enemy_map;
 	//std::unique_ptr<std::vector<Enemy>> enemies;

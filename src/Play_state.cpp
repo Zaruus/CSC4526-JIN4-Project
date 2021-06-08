@@ -1,5 +1,6 @@
 #include "Play_state.h"
 #include <iostream>
+#include <pugixml.hpp>
 
 
 Play_state::Play_state(std::string filePath) : Game_state()
@@ -15,6 +16,14 @@ Play_state::Play_state(std::string filePath) : Game_state()
     blockSize = map.getTileSize().x;
     std::cout << mapSize.x << "\n";
     std::cout << mapSize.y << "\n";
+
+    pugi::xml_document doc;
+
+    pugi::xml_parse_result result = doc.load_file("param.xml");
+
+    nbEnemies = atoi(doc.child("Param").attribute("nbEnemies").value());
+    deltaEnemies = atoi(doc.child("Param").attribute("deltaEnemies").value());
+    nbEnemiesForTower = atoi(doc.child("Param").attribute("nbEnemiesForTower").value());
 
     for (int i = 0; i < mapSize.x; i++)
     {
