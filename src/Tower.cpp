@@ -14,6 +14,8 @@ Tower::Tower(float x, float y,Strategy strat)
 
 	range = 100;
 
+    idStrategy = strat;
+
     switch (strat)
     {
     case Strategy::SingleTargetStrategy:
@@ -137,4 +139,16 @@ void Tower::render(sf::RenderTarget& window)
 
     image.setPosition(renderCoords);
     window.draw(image);
+}
+
+sf::Vector2f Tower::getCoordinates()
+{
+    return this->coordinates;
+}
+
+std::unique_ptr<Tower> Tower::clone(float x,float y)
+{
+    auto newClone = std::make_unique<Tower>(x, y, idStrategy);
+    
+    return std::move(newClone);
 }

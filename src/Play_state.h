@@ -15,7 +15,7 @@
 #include "Tower.h"
 
 
-
+enum class TowerType { SingleTarget, TwoTargets};
 
 class Play_state : public Game_state
 {
@@ -25,6 +25,10 @@ public:
 	 void init() override;
 	Play_state();
 	Play_state(std::string filePath); // On ouvre le fichier tmx donné par filePath et on en sort les informations du niveau
+	void switchWantsToBuild();
+	void buildTower();
+	
+
 
 
 private:
@@ -52,6 +56,14 @@ private:
 	//std::unique_ptr<std::vector<Tower>> towers;
 	std::vector<std::unique_ptr<Enemy>> enemies;
 	std::vector<std::unique_ptr<Tower>> towers;
+
+	bool wantsToBuild;
+	int buildResources;
+
+	sf::RectangleShape possibleBuild;
+
+
+	TowerType buildType;
 
 
 };

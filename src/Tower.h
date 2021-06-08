@@ -30,6 +30,10 @@ public:
 
 	std::vector<Enemy*> getTargets() const;
 	void addTarget(std::unique_ptr<Enemy> e);
+
+	sf::Vector2f getCoordinates();
+
+	std::unique_ptr<Tower> clone(float x,float y);
 	
 
 
@@ -47,4 +51,5 @@ private:
 	//sf::RectangleShape tower_image;
 
 	AttackStrategy* strategy;
+	Strategy idStrategy;
 };

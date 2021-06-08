@@ -43,6 +43,15 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
    
     towers.push_back(std::move(t));
+
+    wantsToBuild = false;
+    buildResources = 10;
+
+    sf::RectangleShape tmp(*(new sf::Vector2f(32,32)));
+    //tmp.setPosition(200, 300);
+    possibleBuild = tmp;
+    buildType = TowerType::SingleTarget;
+
     
 }
 
@@ -54,6 +63,32 @@ void Play_state::init()
 
 void Play_state::update()
 {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        wantsToBuild = true;
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            bool canBuildHere = true;
+            for (int i = 0; i < towers.size(); i++)
+            {
+                
+                if (towers[i]->getCoordinates() == possibleBuild.getPosition())
+                {
+                    canBuildHere = false;
+                }
+            }
+            if (canBuildHere)
+            {
+                buildTower();
+            }
+            //std::cout << "trying to build";
+        }
+    }
+    else
+    {
+        wantsToBuild = false;
+    }
+
     if (!isLost && !isWon)
     {
         for (int i = 0;i<enemies.size();i++)
@@ -108,9 +143,14 @@ void Play_state::update()
 
 
             
-            towers[i]->update(enemies);
+            
             
         }
+        for (int i = 1; i < towers.size(); i++)
+        {
+            towers[i]->update(enemies);
+        }
+        
 
 
     }
@@ -120,7 +160,8 @@ void Play_state::render(sf::RenderWindow& window)
 {
     window.draw(*layerZero);
 
-    for (int i = 0; i < towers.size(); i++)
+    //if(towers.size()>1)
+    for (int i = 1; i < towers.size(); i++)
     {
         towers[i]->render(window);
 
@@ -131,11 +172,35 @@ void Play_state::render(sf::RenderWindow& window)
         enemies[i]->render(window);
     }
 
+    if (wantsToBuild)
+    {
+        float x = (sf::Mouse::getPosition(window).x) - (sf::Mouse::getPosition(window).x)%32;
+        float y = sf::Mouse::getPosition(window).y -sf::Mouse::getPosition(window).y%32;
+        possibleBuild.setPosition(*(new sf::Vector2f(x,y)));
+        window.draw(possibleBuild);
+        
+    }
+
     
 
 
    //enemies->at(0).render(window);
     //std::cout << enemies[i].getCoordinates().x << "test render\n";
     // render stuff here
+}
+
+void Play_state::switchWantsToBuild()
+{
+    wantsToBuild = true;
+}
+
+void Play_state::buildTower()
+{
+    if (buildResources >= 5)
+    {
+        towers.push_back(towers[0]->clone(possibleBuild.getPosition().x, possibleBuild.getPosition().y));
+        buildResources -= 5;
+    }
+    
 }
 
