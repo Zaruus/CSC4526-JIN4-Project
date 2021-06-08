@@ -26,7 +26,11 @@ Play_state::Play_state(std::string filePath) : Game_state()
     deltaEnemies = doc.child("Param").attribute("deltaEnemies").as_int();
     buildTowerResource = doc.child("Param").attribute("buildTowerResource").as_int();
 
+<<<<<<< HEAD
     time_since_last_spawn = std::chrono::high_resolution_clock::now();
+=======
+    std::cout <<"value  :"<< buildTowerResource << "\n";
+>>>>>>> a6cb8dff7b0d67defb097bb2c7b87bf72d66c144
 
     for (int i = 0; i < mapSize.x; i++)
     {
@@ -57,7 +61,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
     towers.push_back(std::move(t));
 
     wantsToBuild = false;
-    buildResources = 10;
+    buildResources = 12;
 
     sf::RectangleShape tmp(*(new sf::Vector2f(32,32)));
     //tmp.setPosition(200, 300);
@@ -89,7 +93,19 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                     canBuildHere = false;
                 }
             }
-            if (canBuildHere)
+            float x = possibleBuild.getPosition().x - (int)possibleBuild.getPosition().x % 32;
+           
+            float y = possibleBuild.getPosition().y - (int)possibleBuild.getPosition().y % 32;
+
+            x = (int)(x / 32);
+            x = (x > 15) ? 15 : x;
+            y = (int)(y / 32);
+            y = (y > 15) ? 15 : y;
+            std::cout <<"x :"<< x<<"\n";
+            std::cout << "y :" << y << "\n";
+
+            //
+            if (canBuildHere && layerOne->getTile(x, y).ID != 3 && layerOne->getTile(x, y).ID != 4 && layerOne->getTile(x, y).ID != 5 && layerOne->getTile(x, y).ID != 7 && layerOne->getTile(x, y).ID != 8)
             {
                 buildTower();
             }
@@ -168,7 +184,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
         }
         
 
-
+        std::cout<<" size :" << enemies.size() << "\n";
     }
 }
 
@@ -191,7 +207,9 @@ void Play_state::render(sf::RenderWindow& window)
     if (wantsToBuild)
     {
         float x = (sf::Mouse::getPosition(window).x) - (sf::Mouse::getPosition(window).x)%32;
+        x = (x > 32 * 15) ? 32 * 15 : x;
         float y = sf::Mouse::getPosition(window).y -sf::Mouse::getPosition(window).y%32;
+        y = (y > 32 * 15) ? 32 * 15 : y;
         possibleBuild.setPosition(*(new sf::Vector2f(x,y)));
         window.draw(possibleBuild);
         
@@ -212,10 +230,10 @@ void Play_state::switchWantsToBuild()
 
 void Play_state::buildTower()
 {
-    if (buildResources >= 5)
+    if (buildResources >= buildTowerResource)
     {
         towers.push_back(towers[0]->clone(possibleBuild.getPosition().x, possibleBuild.getPosition().y));
-        buildResources -= 5;
+        buildResources -= buildTowerResource;
     }
     
 }

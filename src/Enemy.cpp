@@ -118,6 +118,8 @@ void Enemy::render(sf::RenderTarget& window)
 	sf::Vector2f renderCoords(coordinates.x-size.x/2,coordinates.y-size.y/2);
 	
 	image.setPosition(renderCoords);
+	sf::Color health(abs(life)*2.55, 0, 0, 255);
+	image.setFillColor(health);
 	window.draw(image);
 
 }

@@ -117,8 +117,10 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
             if (strategy->attack(targets))
             {
                 machine.execute(TowerTriggers::C);
+                targets.erase(targets.begin());
+                std::cout << "attacking\n";
             }
-            std::cout << "attacking\n";
+            
         }
         break;
 
