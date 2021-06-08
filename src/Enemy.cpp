@@ -14,6 +14,9 @@ Enemy::Enemy(float x, float y,float width,float height)
 		// from state     , to state      , trigger, guard           , action
 		{ States::Initial , States::MOVING     , Triggers::A    , nullptr         , {} },
 		{ States::MOVING       , States::Final , Triggers::B    ,nullptr , {} },
+		{ States::MOVING       , States::Dead , Triggers::C    ,nullptr , {} },
+		{ States::Final       , States::Dead , Triggers::D    ,nullptr , {} },
+		{ States::Initial       , States::Dead , Triggers::E    ,nullptr , {} },
 		});
 
 	sf::Vector2f size(width,height);
@@ -21,6 +24,8 @@ Enemy::Enemy(float x, float y,float width,float height)
 	sf::RectangleShape tmp(size);
 
 	image = tmp;
+
+	life = 100;
 
 	
 	//this->image->setSize(size);
@@ -120,4 +125,41 @@ void Enemy::render(sf::RenderTarget& window)
 sf::Vector2f Enemy::getSize()
 {
 	return this->size;
+}
+
+Enemy Enemy::clone(float x,float y)
+{
+	Enemy clone(x, y, this->size.x, this->size.y);
+
+	return clone;
+}
+
+int Enemy::attack(int damage)
+{
+	life -= damage;
+	if (life <= 0)
+	{
+		switch (machine.state())
+		{
+		case States::Initial :
+			machine.execute(Triggers::E);
+			break;
+
+		case States::MOVING:
+			machine.execute(Triggers::C);
+			break;
+
+		case States::Final:
+			machine.execute(Triggers::D);
+			break;
+		}
+
+	
+	}
+	return life;
+}
+
+int Enemy::getLife()
+{
+	return this->life;
 }

@@ -20,8 +20,8 @@
 
 
 enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
-enum class States { Initial, MOVING, Final };
-enum class Triggers { A, B };
+enum class States { Initial, MOVING, Final,Dead };
+enum class Triggers { A, B,C,D,E };
 
 
 //using F = FSM::Fsm<States, States::Initial, Triggers>;
@@ -39,6 +39,8 @@ class Enemy
 public:
 
 	Enemy(float x, float y, float width, float height);
+
+	
 
 	void knock();
 
@@ -60,6 +62,12 @@ public:
 
 	sf::Vector2f getCoordinates() const;
 
+	Enemy clone(float x,float y);
+
+	int attack(int damage);
+
+	int getLife();
+
 
 
 
@@ -77,6 +85,8 @@ private:
 	//std::unique_ptr<FSM::Fsm<States, States::Initial, Triggers>> machine;
 	FSM::Fsm<States, States::Initial, Triggers> machine;
 	sf::RectangleShape image;
+
+	int life;
 	
 	//std::unique_ptr<sf::RectangleShape> images = std::make_unique<sf::RectangleShape>(size);
 
