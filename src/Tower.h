@@ -30,6 +30,7 @@ public:
 	void aim(const std::vector<std::unique_ptr<Enemy>>& enemies);
 
 	std::vector<Enemy*> getTargets() const;
+	double Tower::getDistance(const Enemy& e) const;
 	void addTarget(std::unique_ptr<Enemy> e);
 
 	sf::Vector2f getCoordinates();

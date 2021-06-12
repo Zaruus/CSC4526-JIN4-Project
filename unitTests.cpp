@@ -29,7 +29,7 @@
 TEST(TestTMX, AffichageMap) {
     sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
     tmx::Map map;
-    map.load("resources/retest.tmx");
+    map.load("mainlauncher/resources/retest.tmx");
     MapLayer layerZero(map, 0);
 
 
@@ -57,7 +57,7 @@ TEST(TestTMX, CheckSecondLayerTileID)
 {
     sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
     tmx::Map map;
-    map.load("resources/retest.tmx");
+    map.load("mainlauncher/resources/retest.tmx");
     MapLayer layerZero(map, 0);
     MapLayer layerOne(map, 1);
 

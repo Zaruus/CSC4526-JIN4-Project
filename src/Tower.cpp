@@ -68,23 +68,10 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
     for (auto& e : enemies)
     {
         if ((targets.empty() || std::find(targets.begin(), targets.end(), e.get()) == targets.end())
-            && sqrt(pow(this->coordinates.x - e->getCoordinates().x, 2) + pow(this->coordinates.y - e->getCoordinates().y, 2)) < range)
+            && this->getDistance(*e) < pow(range,2))
         {
             targets.push_back(e.get());
             
-        }
-    }
-
-    //Si l'ennemi est trop loin, il sort de la liste des cibles de la tour
-    if (!targets.empty())
-    {
-        for (int i = 0 ; i < targets.size(); i++)
-        {
-            if (sqrt(pow(this->coordinates.x - targets[i]->getCoordinates().x, 2) + pow(this->coordinates.y - targets[i]->getCoordinates().y, 2)) > range || targets[i]->getState() == States::Dead)
-            {
-                targets.erase(targets.begin() + i);
-                
-            }
         }
     }
 }
@@ -92,6 +79,11 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
 std::vector<Enemy*> Tower::getTargets() const
 {
     return this->targets;
+}
+
+double Tower::getDistance(const Enemy& e) const
+{
+    return pow(this->coordinates.x - e.getCoordinates().x, 2) + pow(this->coordinates.y - e.getCoordinates().y, 2);
 }
 
 void Tower::addTarget(std::unique_ptr<Enemy> e)
@@ -125,6 +117,19 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
         }
         else
         {
+            //Si l'ennemi est trop loin, il sort de la liste des cibles de la tour
+            if (!targets.empty())
+            {
+                for (int i = 0; i < targets.size(); i++)
+                {
+                    if (this->getDistance(*targets[i]) > pow(range, 2) || targets[i]->getState() == States::Dead)
+                    {
+                        targets.erase(targets.begin() + i);
+
+                    }
+                }
+            }
+
             if (strategy->attack(targets))
             {
                 machine.execute(TowerTriggers::C);
