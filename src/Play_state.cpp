@@ -47,7 +47,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
 
   //On crée l'ennemi prototype qui clonera les autres
-    auto e = std::make_unique<Enemy>(spawnBlock.x * blockSize + 16, spawnBlock.y * blockSize + 16, 20, 20);
+    auto e = std::make_unique<Enemy>(spawnBlock.x * blockSize*(3/2), spawnBlock.y * blockSize * (3 / 2), 20, 20);
 
     enemies.push_back(std::move(e));
 
@@ -95,14 +95,15 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                     canBuildHere = false;
                 }
             }
-            float x = possibleBuild.getPosition().x - (int)possibleBuild.getPosition().x % 32;
+            float x = possibleBuild.getPosition().x - (int)possibleBuild.getPosition().x % blockSize;
            
-            float y = possibleBuild.getPosition().y - (int)possibleBuild.getPosition().y % 32;
+            float y = possibleBuild.getPosition().y - (int)possibleBuild.getPosition().y % blockSize;
 
-            x = (int)(x / 32);
-            x = (x > 15) ? 15 : x;
-            y = (int)(y / 32);
-            y = (y > 15) ? 15 : y;
+            x = (int)(x / blockSize);
+            
+            x = (x > (mapSize.x - 1)) ? (mapSize.x - 1) : x;
+            y = (int)(y / blockSize);
+            y = (y > (mapSize.y - 1)) ? (mapSize.y - 1) : y;
             
 
             //
@@ -132,12 +133,46 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
             }
             else
             {
-                switch (layerOne->getTile((enemies[i]->getCoordinates().x + (enemies[i]->getSize().x / 2)) / blockSize, (enemies[i]->getCoordinates().y + (enemies[i]->getSize().y / 2)) / blockSize).ID)
+                
+
+
+                // On utilise des coordonnées permettant à l'ennemi de rester sur le chemin visuellement
+                int ex;
+                int ey;
+
+                switch (enemies[i]->getMoveDirection())
+                {
+                case MoveDirection::UP:
+                    ex = (enemies[i]->getCoordinates().x) / blockSize;
+                    ey = (enemies[i]->getCoordinates().y+16) / blockSize;
+
+                    break;
+                case MoveDirection::DOWN:
+                    ex = (enemies[i]->getCoordinates().x) / blockSize;
+                    ey = (enemies[i]->getCoordinates().y - 16) / blockSize;
+                    break;
+                case MoveDirection::RIGHT:
+                    ex = (enemies[i]->getCoordinates().x-16) / blockSize;
+                    ey = (enemies[i]->getCoordinates().y) / blockSize;
+                    break;
+                case MoveDirection::LEFT:
+                    ex = (enemies[i]->getCoordinates().x + 16) / blockSize;
+                    ey = (enemies[i]->getCoordinates().y) / blockSize;
+                    break;
+
+                default:
+                    ex = (enemies[i]->getCoordinates().x) / blockSize;
+                    ey = (enemies[i]->getCoordinates().y) / blockSize;
+                    break;
+                }
+
+                //switch (layerOne->getTile((enemies[i]->getCoordinates().x + (enemies[i]->getSize().x / 2)) / blockSize, (enemies[i]->getCoordinates().y + (enemies[i]->getSize().y / 2)) / blockSize).ID)
+                switch (layerOne->getTile(ex,ey).ID)
                 {
                 case 3:
                     if (enemies[i]->getState() != States::MOVING)
                     {
-                        enemies[i]->triggerMachine(Triggers::A);
+                        enemies[i]->triggerMachine(Triggers::InitialToMoving);
 
                     }
                     enemies[i]->setMovement(MoveDirection::UP);
@@ -145,13 +180,13 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                 case 4:
                     if (enemies[i]->getState() != States::MOVING)
                     {
-                        enemies[i]->triggerMachine(Triggers::A);
+                        enemies[i]->triggerMachine(Triggers::InitialToMoving);
 
                     }
                     enemies[i]->setMovement(MoveDirection::UP);
                     break;
                 case 5:
-                    enemies[i]->triggerMachine(Triggers::B);
+                    enemies[i]->triggerMachine(Triggers::MovingToFinal);
                     isLost = true;
                     std::cout << "The game is lost\n";
                     break;
@@ -215,10 +250,10 @@ void Play_state::render(sf::RenderWindow& window)
     if (wantsToBuild)
     {
         //On build obligatoirement sur une tile
-        float x = (sf::Mouse::getPosition(window).x) - (sf::Mouse::getPosition(window).x)%32;
-        x = (x > 32 * 15) ? 32 * 15 : x;
-        float y = sf::Mouse::getPosition(window).y -sf::Mouse::getPosition(window).y%32;
-        y = (y > 32 * 15) ? 32 * 15 : y;
+        float x = (sf::Mouse::getPosition(window).x) - (sf::Mouse::getPosition(window).x)% blockSize;
+        x = (x > blockSize * (mapSize.x-1)) ? blockSize * (mapSize.x - 1) : x;
+        float y = sf::Mouse::getPosition(window).y -sf::Mouse::getPosition(window).y% blockSize;
+        y = (y > blockSize * (mapSize.y - 1)) ? blockSize * (mapSize.y - 1) : y;
         possibleBuild.setPosition(*(new sf::Vector2f(x,y)));
         window.draw(possibleBuild);
         

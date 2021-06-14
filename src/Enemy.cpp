@@ -13,16 +13,18 @@ Enemy::Enemy(float x, float y,float width,float height)
 
 	machine.add_transitions({
 		// from state     , to state      , trigger, guard           , action
-		{ States::Initial , States::MOVING     , Triggers::A    , nullptr         , {} },
-		{ States::MOVING       , States::Final , Triggers::B    ,nullptr , {} },
-		{ States::MOVING       , States::Dead , Triggers::C    ,nullptr , {} },
-		{ States::Final       , States::Dead , Triggers::D    ,nullptr , {} },
-		{ States::Initial       , States::Dead , Triggers::E    ,nullptr , {} },
+		{ States::Initial , States::MOVING     , Triggers::InitialToMoving    , nullptr         , {} },
+		{ States::MOVING       , States::Final , Triggers::MovingToFinal    ,nullptr , {} },
+		{ States::MOVING       , States::Dead , Triggers::MovingToDead    ,nullptr , {} },
+		{ States::Final       , States::Dead , Triggers::FinalToDead    ,nullptr , {} },
+		{ States::Initial       , States::Dead , Triggers::InitialToDead    ,nullptr , {} },
 		});
 
 	sf::Vector2f size(width,height);
 	this->size = size;
 	sf::RectangleShape tmp(size);
+	tmp.setOrigin(size.x/2, size.x / 2);
+	tmp.setPosition(coords);
 
 	image = tmp;
 
@@ -43,6 +45,7 @@ void Enemy::setSpeed(float newSpeed)
 void Enemy::move()
 {
 	this->coordinates += this->movement;
+	image.setPosition(image.getPosition() + movement);
 }
 
 void Enemy::setMovement(MoveDirection newDirection)
@@ -84,9 +87,15 @@ void Enemy::setMovement(MoveDirection newDirection)
 
 }
 
+MoveDirection Enemy::getMoveDirection()
+{
+	return direction;
+}
+
 sf::Vector2f Enemy::getCoordinates() const
 {
-	return this->coordinates;
+	//return this->coordinates;
+	return image.getPosition();
 }
 
 States Enemy::getState()
@@ -116,9 +125,9 @@ void Enemy::update()
 
 void Enemy::render(sf::RenderTarget& window)
 {
-	sf::Vector2f renderCoords(coordinates.x-size.x/2,coordinates.y-size.y/2);
+	//sf::Vector2f renderCoords(coordinates.x,coordinates.y);
 	
-	image.setPosition(renderCoords);
+	//image.setPosition(renderCoords);
 	sf::Color health(abs(life)*2.55, 0, 0, 255);
 	image.setFillColor(health);
 	window.draw(image);
@@ -147,15 +156,15 @@ int Enemy::attack(float damage)
 		switch (machine.state())
 		{
 		case States::Initial :
-			machine.execute(Triggers::E);
+			machine.execute(Triggers::InitialToDead);
 			break;
 
 		case States::MOVING:
-			machine.execute(Triggers::C);
+			machine.execute(Triggers::MovingToDead);
 			break;
 
 		case States::Final:
-			machine.execute(Triggers::D);
+			machine.execute(Triggers::FinalToDead);
 			break;
 		}
 

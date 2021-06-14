@@ -41,11 +41,11 @@ Tower::Tower(float x, float y,Strategy strat)
 
 	machine.add_transitions({
 		// from state     , to state      , trigger, guard           , action
-		{ TowerStates::Initial , TowerStates::Aiming     , TowerTriggers::A    , nullptr         , {} },
-		{ TowerStates::Aiming       , TowerStates::Shooting , TowerTriggers::B    ,nullptr , {} },
-		{ TowerStates::Shooting       , TowerStates::Aiming , TowerTriggers::C    ,nullptr , {} },
-		{ TowerStates::Shooting       , TowerStates::Final , TowerTriggers::D    ,nullptr , {} },
-		{ TowerStates::Aiming       , TowerStates::Final , TowerTriggers::E    ,nullptr , {} },
+		{ TowerStates::Initial , TowerStates::Aiming     , TowerTriggers::InitialToAiming    , nullptr         , {} },
+		{ TowerStates::Aiming       , TowerStates::Shooting , TowerTriggers::AimingToShooting    ,nullptr , {} },
+		{ TowerStates::Shooting       , TowerStates::Aiming , TowerTriggers::ShootingToAiming    ,nullptr , {} },
+		{ TowerStates::Shooting       , TowerStates::Final , TowerTriggers::ShootingToFinal    ,nullptr , {} },
+		{ TowerStates::Aiming       , TowerStates::Final , TowerTriggers::AimingToFinal    ,nullptr , {} },
 		});
 }
 
@@ -96,12 +96,12 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
     switch (machine.state())
     {
     case TowerStates::Initial:
-        machine.execute(TowerTriggers::A);
+        machine.execute(TowerTriggers::InitialToAiming);
         break;
     case TowerStates::Aiming:
         if (targets.size() != 0)
         {
-            machine.execute(TowerTriggers::B);
+            machine.execute(TowerTriggers::AimingToShooting);
         }
         else
         {
@@ -113,7 +113,7 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
     case TowerStates::Shooting:
         if (targets.size() == 0)
         {
-            machine.execute(TowerTriggers::C);
+            machine.execute(TowerTriggers::ShootingToAiming);
         }
         else
         {
@@ -132,7 +132,7 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
 
             if (strategy->attack(targets))
             {
-                machine.execute(TowerTriggers::C);
+                machine.execute(TowerTriggers::ShootingToAiming);
                 targets.erase(targets.begin());
                
             }

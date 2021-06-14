@@ -21,7 +21,7 @@
 
 enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
 enum class States { Initial, MOVING, Final,Dead };
-enum class Triggers { A, B,C,D,E };
+enum class Triggers { InitialToMoving, MovingToFinal,MovingToDead,FinalToDead, InitialToDead};
 
 
 
@@ -60,6 +60,8 @@ public:
 	int attack(float damage);
 
 	int getLife();
+
+	MoveDirection getMoveDirection();
 
 
 

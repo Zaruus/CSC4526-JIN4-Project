@@ -11,7 +11,7 @@
 
 //enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
 enum class TowerStates { Initial, Aiming,Shooting, Final };
-enum class TowerTriggers { A, B,C,D,E };
+enum class TowerTriggers { InitialToAiming, AimingToShooting, ShootingToAiming, ShootingToFinal, AimingToFinal};
 enum class Strategy { SingleTargetStrategy };
 
 
