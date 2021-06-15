@@ -10,7 +10,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
     //current_game_state = make_unique<Play_state>("resources/NouvelleMapTest.tmx");
     
     tmx::Map map;
-    map.load("resources/map1.tmx");
+    map.load("resources/map2.tmx");
     layerZero = std::make_unique<MapLayer>(map, 0);
     layerOne = std::make_unique<MapLayer>(map, 1);
     mapSize.x = map.getTileCount().x;
@@ -37,17 +37,19 @@ Play_state::Play_state(std::string filePath) : Game_state()
         {
             if (layerOne->getTile(i, j).ID == 4)
             {
-                spawnBlock.x = i;
-                spawnBlock.y = j;
+                spawnBlocks.push_back(std::make_unique<sf::Vector2f>(i, j));
+                //spawnBlock.x = i;
+                //spawnBlock.y = j;
             }
         }
     }
+    currentSpawnId = 0;
     
     
 
 
   //On crée l'ennemi prototype qui clonera les autres
-    auto e = std::make_unique<Enemy>(spawnBlock.x * blockSize*(3/2), spawnBlock.y * blockSize * (3 / 2), 20, 20);
+    auto e = std::make_unique<Enemy>(spawnBlocks[0]->x * blockSize * (3 / 2), spawnBlocks[0]->y * blockSize * (3 / 2), 20, 20);
 
     enemies.push_back(std::move(e));
 
@@ -220,7 +222,11 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
         if (time_since_last_spawn <= time_start && nbEnemies > 0)
         {
             
-            enemies.push_back(enemies[0]->clone(spawnBlock.x * blockSize + 16, spawnBlock.y * blockSize + 16));
+            //enemies.push_back(enemies[0]->clone(spawnBlock.x * blockSize + 16, spawnBlock.y * blockSize + 16));
+            enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x * blockSize + 16, spawnBlocks[currentSpawnId]->y * blockSize + 16));
+            currentSpawnId = (currentSpawnId + 1) % spawnBlocks.size();
+
+
             time_since_last_spawn = time_start + std::chrono::seconds(deltaEnemies);
             nbEnemies--;
             

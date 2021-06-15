@@ -56,6 +56,8 @@ private:
 	
 	std::vector<std::unique_ptr<Enemy>> enemies;
 	std::vector<std::unique_ptr<Tower>> towers;
+	std::vector<std::unique_ptr<sf::Vector2f>> spawnBlocks;
+	int currentSpawnId;
 
 	bool wantsToBuild;
 	int buildResources;
