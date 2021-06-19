@@ -7,7 +7,8 @@ Enemy::Enemy(float x, float y,float width,float height)
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
 
-	speed = 0.2f;
+	originSpeed = 1.0f;
+	speed = 1.0f;
 
 	
 
@@ -37,10 +38,7 @@ Enemy::Enemy(float x, float y,float width,float height)
 
 }
 
-void Enemy::setSpeed(float newSpeed)
-{
-	speed = newSpeed;
-}
+
 
 void Enemy::move()
 {
@@ -80,6 +78,7 @@ void Enemy::setMovement(MoveDirection newDirection)
 			break;
 		}
 
+		reloadMovement();
 		direction = newDirection;
 	}
 
@@ -176,4 +175,28 @@ int Enemy::attack(float damage)
 int Enemy::getLife()
 {
 	return this->life;
+}
+
+void Enemy::setSpeed(float s)
+{
+	speed = s;
+}
+
+float Enemy::getOriginSpeed()
+{
+	return originSpeed;
+}
+
+void Enemy::reloadMovement()
+{
+
+	
+	movement = movement * speed;
+	std::cout << "movementx is" << movement.x << "\n";
+	std::cout << "movementy is" << movement.y << "\n";
+}
+
+float Enemy::getSpeed()
+{
+	return speed;
 }

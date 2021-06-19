@@ -278,7 +278,7 @@ void Play_state::buildTower()
     //Construit une tower
     if (buildResources >= buildTowerResource)
     {
-        towers.push_back(towers[0]->clone(possibleBuild.getPosition().x, possibleBuild.getPosition().y));
+        towers.push_back(towers[0]->clone(possibleBuild.getPosition().x, possibleBuild.getPosition().y,Strategy::SlowDownAllStrategy));
         buildResources -= buildTowerResource;
     }
     

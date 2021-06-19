@@ -31,8 +31,14 @@ Tower::Tower(float x, float y,Strategy strat)
     {
     case Strategy::SingleTargetStrategy:
         strategy = new SingleTargetStrategy();
+        break;
+
+    case Strategy::SlowDownAllStrategy:
+        strategy = new SlowDownAllStrategy();
+        break;
     default:
         strategy = new SingleTargetStrategy();
+        break;
     }
 
 	
@@ -130,11 +136,31 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
                 }
             }
 
-            if (strategy->attack(targets))
+           /* if (strategy->attack(targets))
             {
                 machine.execute(TowerTriggers::ShootingToAiming);
                 targets.erase(targets.begin());
                
+            }*/
+            bool resultAttack = strategy->attack(targets);
+            switch (idStrategy)
+            {
+            case Strategy::SingleTargetStrategy:
+
+                break;
+                if (resultAttack)
+                {
+                    targets.erase(targets.begin());
+                }
+            case Strategy::SlowDownAllStrategy:
+             /*for (int i = 0; i < targets.size(); i++)
+                {
+                    targets[i]->setSpeed(targets[i]->getOriginSpeed());
+                }*/
+                break;
+            default:
+
+                break;
             }
             
         }
@@ -169,9 +195,10 @@ sf::Vector2f Tower::getCoordinates()
     return this->coordinates;
 }
 
-std::unique_ptr<Tower> Tower::clone(float x,float y)
+std::unique_ptr<Tower> Tower::clone(float x,float y, Strategy strat)
 {
-    auto newClone = std::make_unique<Tower>(x, y, idStrategy);
+    //auto newClone = std::make_unique<Tower>(x, y, idStrategy);
+    auto newClone = std::make_unique<Tower>(x, y, strat);
     
     return std::move(newClone);
 }

@@ -3,6 +3,7 @@
 #include "Enemy.h"
 #include "AttackStrategy.h"
 #include "SingleTargetStrategy.h"
+#include "SlowDownAllStrategy.h"
 #include "SFML/Graphics/CircleShape.hpp"
 
 
@@ -12,7 +13,7 @@
 //enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
 enum class TowerStates { Initial, Aiming,Shooting, Final };
 enum class TowerTriggers { InitialToAiming, AimingToShooting, ShootingToAiming, ShootingToFinal, AimingToFinal};
-enum class Strategy { SingleTargetStrategy };
+enum class Strategy { SingleTargetStrategy, SlowDownAllStrategy};
 
 
 class Tower
@@ -35,7 +36,7 @@ public:
 
 	sf::Vector2f getCoordinates();
 
-	std::unique_ptr<Tower> clone(float x,float y);
+	std::unique_ptr<Tower> clone(float x,float y, Strategy strat);
 	
 
 

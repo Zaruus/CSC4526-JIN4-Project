@@ -37,7 +37,7 @@ public:
 
 	void knock();
 
-	void setSpeed(float newSpeed);
+	
 
 	void move();
 
@@ -63,6 +63,14 @@ public:
 
 	MoveDirection getMoveDirection();
 
+	void setSpeed(float s);
+
+	float getOriginSpeed();
+
+	void reloadMovement();
+
+	float getSpeed();
+
 
 
 
@@ -76,6 +84,7 @@ private:
 	sf::Vector2f size;
 
 	float speed;
+	float originSpeed;
 
 	
 	FSM::Fsm<States, States::Initial, Triggers> machine;
