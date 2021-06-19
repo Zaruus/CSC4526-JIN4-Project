@@ -80,6 +80,31 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
             
         }
     }
+
+    for (int i = 0; i < targets.size(); i++)
+    {
+        if (this->getDistance(*targets[i]) > pow(range, 2) || targets[i]->getState() == States::Dead)
+        {
+
+            switch (idStrategy)
+            {
+            case Strategy::SingleTargetStrategy:
+                //Nothing to do here
+                break;
+                
+            case Strategy::SlowDownAllStrategy:
+                targets[i]->setSpeed(targets[i]->getOriginSpeed());
+                
+                targets[i]->reloadMovement();
+                break;
+            default:
+
+                break;
+            }
+            targets.erase(targets.begin() + i);
+
+        }
+    }
 }
 
 std::vector<Enemy*> Tower::getTargets() const
@@ -99,6 +124,7 @@ void Tower::addTarget(std::unique_ptr<Enemy> e)
 
 void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
 {
+    //std::cout << "Tower targets size is : " << targets.size() << "\n";
     switch (machine.state())
     {
     case TowerStates::Initial:
@@ -124,7 +150,7 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
         else
         {
             //Si l'ennemi est trop loin, il sort de la liste des cibles de la tour
-            if (!targets.empty())
+            /*if (!targets.empty())
             {
                 for (int i = 0; i < targets.size(); i++)
                 {
@@ -134,7 +160,8 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
 
                     }
                 }
-            }
+            }*/
+            
 
            /* if (strategy->attack(targets))
             {
@@ -162,6 +189,9 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
 
                 break;
             }
+
+
+            aim(enemies);
             
         }
         break;

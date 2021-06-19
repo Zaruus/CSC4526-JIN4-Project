@@ -109,6 +109,7 @@ void Enemy::triggerMachine(Triggers trig)
 
 void Enemy::update()
 {
+	std::cout << "My speed is : " << speed << "\n";
 	switch (machine.state())
 	{
 	case States::MOVING:
@@ -190,10 +191,11 @@ float Enemy::getOriginSpeed()
 void Enemy::reloadMovement()
 {
 
-	
+	float l = sqrt(pow(movement.x, 2) + pow(movement.y, 2));
+	movement = movement * (1.0f/l);
+
 	movement = movement * speed;
-	std::cout << "movementx is" << movement.x << "\n";
-	std::cout << "movementy is" << movement.y << "\n";
+	
 }
 
 float Enemy::getSpeed()
