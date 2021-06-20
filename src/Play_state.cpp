@@ -68,8 +68,6 @@ Play_state::Play_state(std::string filePath) : Game_state()
     
     possibleBuild = tmp;
     buildStrategy = Strategy::SingleTargetStrategy;
-    
-    
 
     
 }
@@ -77,7 +75,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
 void Play_state::init()
 {
-    
+
 }
 
 void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clock> time_start)
@@ -317,6 +315,34 @@ void Play_state::render(sf::RenderWindow& window)
         
     }
 
+    //La partie suivante permet d'afficher l'argent restant
+
+    sf::Font font;
+    if (!font.loadFromFile("resources/arial.ttf"))
+    {
+        std::cout << "Police non trouvee";
+    }
+
+    sf::Text text;
+
+    // select the font
+    text.setFont(font); // font is a sf::Font
+
+    // set the string to display
+    text.setString(std::to_string(buildResources));
+
+    // set the character size
+    text.setCharacterSize(24); // in pixels, not points!
+
+    // set the color
+    text.setFillColor(sf::Color::White);
+
+    // set the text style
+    text.setStyle(sf::Text::Bold);
+
+
+    // inside the main loop, between window.clear() and window.display()
+    window.draw(text);
     
 }
 
