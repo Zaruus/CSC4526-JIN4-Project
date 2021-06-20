@@ -12,8 +12,8 @@ Tower::Tower(float x, float y,Strategy strat)
 	sf::RectangleShape tmp(size);
     
 
-	image = tmp;
-    image.setFillColor(sf::Color::Black);
+	
+    
 
 	range = 100;
 
@@ -31,15 +31,20 @@ Tower::Tower(float x, float y,Strategy strat)
     {
     case Strategy::SingleTargetStrategy:
         strategy = new SingleTargetStrategy();
+        tmp.setFillColor(sf::Color::Black);
         break;
 
     case Strategy::SlowDownAllStrategy:
         strategy = new SlowDownAllStrategy();
+        tmp.setFillColor(sf::Color::Blue);
         break;
     default:
         strategy = new SingleTargetStrategy();
+        tmp.setFillColor(sf::Color::Black);
         break;
     }
+    
+    image = tmp;
 
 	
 

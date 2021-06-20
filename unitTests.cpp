@@ -103,14 +103,14 @@ TEST(TestPairEnemyFsm, testpairage)//On test le fonctionnement qu'aurais une pai
     //fsm.execute(Triggers::A);
 
     e.setMovement(MoveDirection::DOWN);
-    e.triggerMachine(Triggers::A);
+    e.triggerMachine(Triggers::InitialToMoving);
     e.update();
     e.update();
     e.update();
     e.update();
 
     
-   e.triggerMachine(Triggers::B);
+   e.triggerMachine(Triggers::MovingToFinal);
 
    e.update();
    e.update();

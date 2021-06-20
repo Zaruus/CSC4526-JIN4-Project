@@ -15,7 +15,7 @@
 #include "Tower.h"
 #include "SFML/Graphics/Text.hpp";
 
-enum class TowerType { SingleTarget, TwoTargets};
+//enum class TowerType { SingleTarget, TwoTargets};
 
 class Play_state : public Game_state
 {
@@ -65,7 +65,9 @@ private:
 
 	//variables pour la construction de towers
 	sf::RectangleShape possibleBuild;
-	TowerType buildType;
+	Strategy buildStrategy;
+	int qPressedCounter;
+	int dPressedCounter;
 
 	//temps entre chaque spawn d'ennemi
 	std::chrono::time_point<std::chrono::high_resolution_clock> time_since_last_spawn;

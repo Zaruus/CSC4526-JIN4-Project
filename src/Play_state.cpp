@@ -67,7 +67,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
     sf::RectangleShape tmp(*(new sf::Vector2f(32,32)));
     
     possibleBuild = tmp;
-    buildType = TowerType::SingleTarget;
+    buildStrategy = Strategy::SingleTargetStrategy;
     
     
 
@@ -120,6 +120,38 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
     {
         wantsToBuild = false;
     }
+
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+    {
+        qPressedCounter++;
+        if (qPressedCounter == 1)
+        {
+            //On sélectionne un nouveau type de tourelle
+            //y = (y > blockSize * (mapSize.y - 1)) ? blockSize * (mapSize.y - 1) : y;
+            
+            buildStrategy = ((int)buildStrategy - 1 < 0) ? (Strategy)((int)Strategy::last-1) : (Strategy)((int)buildStrategy - 1);
+            
+        }
+    }
+    else
+    {
+        qPressedCounter = 0;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        dPressedCounter++;
+        if (dPressedCounter == 1)
+        {
+            //On sélectionne un nouveau type de tourelle
+            buildStrategy = (Strategy)(((int)buildStrategy + 1) % ((int)Strategy::last));
+        }
+    }
+    else
+    {
+        dPressedCounter = 0;
+    }
+
 
     //on update les ennemis 
 
@@ -261,6 +293,22 @@ void Play_state::render(sf::RenderWindow& window)
         float y = sf::Mouse::getPosition(window).y -sf::Mouse::getPosition(window).y% blockSize;
         y = (y > blockSize * (mapSize.y - 1)) ? blockSize * (mapSize.y - 1) : y;
         possibleBuild.setPosition(*(new sf::Vector2f(x,y)));
+        switch (buildStrategy)
+        {
+        case Strategy::SingleTargetStrategy:
+            possibleBuild.setFillColor(sf::Color::Black);
+            break;
+
+        case Strategy::SlowDownAllStrategy:
+            possibleBuild.setFillColor(sf::Color::Blue);
+            break;
+
+        default:
+
+            break;
+        }
+
+
         window.draw(possibleBuild);
         
     }
@@ -278,7 +326,7 @@ void Play_state::buildTower()
     //Construit une tower
     if (buildResources >= buildTowerResource)
     {
-        towers.push_back(towers[0]->clone(possibleBuild.getPosition().x, possibleBuild.getPosition().y,Strategy::SlowDownAllStrategy));
+        towers.push_back(towers[0]->clone(possibleBuild.getPosition().x, possibleBuild.getPosition().y,buildStrategy));
         buildResources -= buildTowerResource;
     }
     
