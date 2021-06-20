@@ -4,6 +4,7 @@
 #include "AttackStrategy.h"
 #include "SingleTargetStrategy.h"
 #include "SlowDownAllStrategy.h"
+#include "ZoneAttackStrategy.h"
 #include "SFML/Graphics/CircleShape.hpp"
 
 
@@ -13,7 +14,7 @@
 //enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
 enum class TowerStates { Initial, Aiming,Shooting, Final };
 enum class TowerTriggers { InitialToAiming, AimingToShooting, ShootingToAiming, ShootingToFinal, AimingToFinal};
-enum class Strategy { SingleTargetStrategy, SlowDownAllStrategy,last};
+enum class Strategy { SingleTargetStrategy, SlowDownAllStrategy, ZoneAttackStrategy, last};
 
 
 class Tower

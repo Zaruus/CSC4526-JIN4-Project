@@ -38,6 +38,10 @@ Tower::Tower(float x, float y,Strategy strat)
         strategy = new SlowDownAllStrategy();
         tmp.setFillColor(sf::Color::Blue);
         break;
+    case Strategy::ZoneAttackStrategy:
+        strategy = new ZoneAttackStrategy();
+        tmp.setFillColor(sf::Color::White);
+        break;
     default:
         strategy = new SingleTargetStrategy();
         tmp.setFillColor(sf::Color::Black);

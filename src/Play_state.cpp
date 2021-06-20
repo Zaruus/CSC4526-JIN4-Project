@@ -303,6 +303,10 @@ void Play_state::render(sf::RenderWindow& window)
             possibleBuild.setFillColor(sf::Color::Blue);
             break;
 
+        case Strategy::ZoneAttackStrategy:
+            possibleBuild.setFillColor(sf::Color::White);
+            break;
+
         default:
 
             break;
