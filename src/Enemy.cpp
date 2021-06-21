@@ -1,12 +1,11 @@
 #include "Enemy.h"
 
 
-Enemy::Enemy(float x, float y,float width,float height)
+Enemy::Enemy(float x, float y,float width,float height,KnockStrategies strat)
 {
-	//BreakResponseStrategy tmps();
-	//this->strategy = tmps;
-	strategy = new BreakResponseStrategy();
-	attackedTowers = 2;
+	
+	//strategy = new BreakResponseStrategy();
+	
 
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
@@ -23,6 +22,7 @@ Enemy::Enemy(float x, float y,float width,float height)
 		{ States::MOVING       , States::Dead , Triggers::MovingToDead    ,nullptr , {} },
 		{ States::Final       , States::Dead , Triggers::FinalToDead    ,nullptr , {} },
 		{ States::Initial       , States::Dead , Triggers::InitialToDead    ,nullptr , {} },
+		{ States::MOVING       , States::Knocking , Triggers::MovingToKnocking    ,nullptr , {} },
 		});
 
 	sf::Vector2f size(width,height);
@@ -34,6 +34,22 @@ Enemy::Enemy(float x, float y,float width,float height)
 	image = tmp;
 
 	life = 100;
+
+	switch (strat)
+	{
+	case KnockStrategies::NormalKnock:
+		originSpeed = 1.0f;
+		speed = 1.0f;
+		strategy = new NormalKnockStrategy();
+
+		break;
+
+	default:
+		break;
+	}
+
+
+	idStrategy = strat;
 
 	
 	
@@ -143,9 +159,9 @@ sf::Vector2f Enemy::getSize()
 	return this->size;
 }
 
-std::unique_ptr<Enemy> Enemy::clone(float x,float y)
+std::unique_ptr<Enemy> Enemy::clone(float x,float y, KnockStrategies strat)
 {
-	auto tmp = std::make_unique<Enemy>(x, y, this->size.x, this->size.y);
+	auto tmp = std::make_unique<Enemy>(x, y, this->size.x, this->size.y, strat);
 	
 
 	return std::move(tmp);
@@ -207,15 +223,9 @@ float Enemy::getSpeed()
 	return speed;
 }
 
-
-void Enemy::respond()
+float Enemy::knock(std::chrono::time_point<std::chrono::high_resolution_clock> time)
 {
-	if (attackedTowers > 0)
-	{
-		if (strategy->respond())
-		{
-			attackedTowers--;
-		}
-	}
-	//strategy->respond();
+	return strategy->knock(time);
 }
+
+

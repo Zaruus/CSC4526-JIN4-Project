@@ -71,6 +71,11 @@ private:
 
 	//temps entre chaque spawn d'ennemi
 	std::chrono::time_point<std::chrono::high_resolution_clock> time_since_last_spawn;
+
+
+	std::vector<std::unique_ptr<float>> doorsLife;
+
+	
 	
 
 

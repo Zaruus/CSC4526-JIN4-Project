@@ -253,7 +253,8 @@ void Tower::breakDown()
     if (!hasBrokenDown)
     {
         //On break
-        machine.execute(TowerTriggers::ShootingToBroken);
+        //machine.execute(TowerTriggers::ShootingToBroken);
+        std::cout << "tower tried to break";
 
         hasBrokenDown = true;
         

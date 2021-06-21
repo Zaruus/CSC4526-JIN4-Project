@@ -38,8 +38,12 @@ Play_state::Play_state(std::string filePath) : Game_state()
             if (layerOne->getTile(i, j).ID == 4)
             {
                 spawnBlocks.push_back(std::make_unique<sf::Vector2f>(i, j));
-                //spawnBlock.x = i;
-                //spawnBlock.y = j;
+                
+            }
+            else if (layerOne->getTile(i, j).ID == 5)
+            {
+                doorsLife.push_back(std::make_unique<float>(100.0f));
+                
             }
         }
     }
@@ -49,7 +53,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
 
   //On crée l'ennemi prototype qui clonera les autres
-    auto e = std::make_unique<Enemy>(spawnBlocks[0]->x * blockSize * (3 / 2), spawnBlocks[0]->y * blockSize * (3 / 2), 20, 20);
+    auto e = std::make_unique<Enemy>(spawnBlocks[0]->x * blockSize * (3 / 2), spawnBlocks[0]->y * blockSize * (3 / 2), 20, 20,KnockStrategies::NormalKnock);
 
     enemies.push_back(std::move(e));
 
@@ -68,6 +72,8 @@ Play_state::Play_state(std::string filePath) : Game_state()
     
     possibleBuild = tmp;
     buildStrategy = Strategy::SingleTargetStrategy;
+
+    
 
     
 }
@@ -218,9 +224,37 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                     enemies[i]->setMovement(MoveDirection::UP);
                     break;
                 case 5:
-                    enemies[i]->triggerMachine(Triggers::MovingToFinal);
-                    isLost = true;
-                    std::cout << "The game is lost\n";
+                    if (enemies[i]->getState() != States::Knocking)
+                    {
+                        enemies[i]->triggerMachine(Triggers::MovingToKnocking);
+                    }
+                    else
+                    {
+                        //On enlève le nombre retourné par knock à la vie de la porte
+                        if (doorsLife.size() != 1)
+                        {
+                            if (ex >= mapSize.x / 2)
+                            {
+                                //On enlève de la vie à la porte 2
+                                *doorsLife[1] -= enemies[i]->knock(time_start);
+
+                            }
+                            else
+                            {
+                                //On enlève de la vie à la porte 1
+                                *doorsLife[0] -= enemies[i]->knock(time_start);
+                            }
+                        }
+                        else
+                        {
+                            *doorsLife[0] -= enemies[i]->knock(time_start);
+                        }
+
+                        
+                    }
+                    
+                 
+                    
                     break;
 
                 case 7:
@@ -244,6 +278,14 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
             
             
         }
+        for (int i = 0; i < doorsLife.size(); i++)
+        {
+            if (*doorsLife[i] <= 0)
+            {
+                isLost = true;
+                std::cout << "The game is lost\n";
+            }
+        }
         //On update les towers
         for (int i = 1; i < towers.size(); i++)
         {
@@ -253,7 +295,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
         {
             
             
-            enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x * blockSize + blockSize / 2, spawnBlocks[currentSpawnId]->y * blockSize + blockSize / 2));
+            enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x * blockSize + blockSize / 2, spawnBlocks[currentSpawnId]->y * blockSize + blockSize / 2,KnockStrategies::NormalKnock));
             currentSpawnId = (currentSpawnId + 1) % spawnBlocks.size();
 
 
@@ -262,7 +304,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
             
         }
         
-
+        
         
     }
 }
@@ -343,6 +385,8 @@ void Play_state::render(sf::RenderWindow& window)
 
     // inside the main loop, between window.clear() and window.display()
     window.draw(text);
+
+    
     
 }
 

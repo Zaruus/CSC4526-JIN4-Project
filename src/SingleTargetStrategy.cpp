@@ -18,7 +18,7 @@ bool SingleTargetStrategy::attack(std::vector<Enemy*>& targets)
         {
             return true;
         }
-        targets[0]->respond();
+        
     }
 
     return false;

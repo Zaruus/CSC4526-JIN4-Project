@@ -1,8 +1,8 @@
 #pragma once
 
 #include "fsm.h"
-#include "BreakResponseStrategy.h"
-#include "ResponseStrategy.h"
+#include "KnockStrategy.h"
+#include "NormalKnockStrategy.h"
 #include <iostream>
 
 
@@ -22,8 +22,9 @@
 
 
 enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
-enum class States { Initial, MOVING, Final,Dead };
-enum class Triggers { InitialToMoving, MovingToFinal,MovingToDead,FinalToDead, InitialToDead};
+enum class States { Initial, MOVING,Knocking, Final,Dead };
+enum class Triggers { InitialToMoving, MovingToFinal,MovingToDead,FinalToDead, InitialToDead,MovingToKnocking};
+enum class KnockStrategies {NormalKnock,last};
 
 
 
@@ -33,11 +34,11 @@ class Enemy
 {
 public:
 
-	Enemy(float x, float y, float width, float height);
+	Enemy(float x, float y, float width, float height,KnockStrategies strat);
 
 	
 
-	void knock();
+
 
 	
 
@@ -57,7 +58,7 @@ public:
 
 	sf::Vector2f getCoordinates() const;
 
-	std::unique_ptr<Enemy> clone(float x,float y);
+	std::unique_ptr<Enemy> clone(float x,float y, KnockStrategies strat);
 
 	int attack(float damage);
 
@@ -73,7 +74,9 @@ public:
 
 	float getSpeed();
 
-	void respond();
+	float knock(std::chrono::time_point<std::chrono::high_resolution_clock> time);
+
+
 
 
 
@@ -96,9 +99,11 @@ private:
 
 	float life;
 
-	ResponseStrategy* strategy;
+	
 
-	int attackedTowers;
+	
+	KnockStrategies idStrategy;
+	KnockStrategy* strategy;
 	
 	
 
