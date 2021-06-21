@@ -7,13 +7,15 @@
 #include "ZoneAttackStrategy.h"
 #include "SFML/Graphics/CircleShape.hpp"
 
+#include <chrono>
+
 
 
 
 
 //enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
-enum class TowerStates { Initial, Aiming,Shooting, Final };
-enum class TowerTriggers { InitialToAiming, AimingToShooting, ShootingToAiming, ShootingToFinal, AimingToFinal};
+enum class TowerStates { Initial, Aiming,Shooting,Broken, Final };
+enum class TowerTriggers { InitialToAiming, AimingToShooting, ShootingToAiming, ShootingToFinal, AimingToFinal,ShootingToBroken,BrokenToAiming};
 enum class Strategy { SingleTargetStrategy, SlowDownAllStrategy, ZoneAttackStrategy, last};
 
 
@@ -21,7 +23,7 @@ class Tower
 {
 public:
 	Tower(float x, float y, Strategy strat);
-	void update(std::vector<std::unique_ptr<Enemy>>& enemies);
+	void update(std::vector<std::unique_ptr<Enemy>>& enemies, std::chrono::time_point<std::chrono::high_resolution_clock> time);
 	void render(sf::RenderTarget& window);
 
 
@@ -38,6 +40,8 @@ public:
 	sf::Vector2f getCoordinates();
 
 	std::unique_ptr<Tower> clone(float x,float y, Strategy strat);
+
+	void breakDown();
 	
 
 
@@ -57,4 +61,10 @@ private:
 	AttackStrategy* strategy;
 	Strategy idStrategy;
 	sf::CircleShape rangeCircle;
+
+
+
+	int brokenDownTime;
+	bool hasBrokenDown;
+	std::chrono::time_point<std::chrono::high_resolution_clock> timeUntilRepair;
 };

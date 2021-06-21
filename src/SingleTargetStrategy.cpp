@@ -13,11 +13,12 @@ bool SingleTargetStrategy::attack(std::vector<Enemy*>& targets)
 
     if (!targets.empty())
     {
+        
         if (targets[0]->attack(0.5) < 0)
         {
             return true;
         }
-       
+        targets[0]->respond();
     }
 
     return false;

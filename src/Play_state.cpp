@@ -176,19 +176,19 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                 {
                 case MoveDirection::UP:
                     ex = (enemies[i]->getCoordinates().x) / blockSize;
-                    ey = (enemies[i]->getCoordinates().y+16) / blockSize;
+                    ey = (enemies[i]->getCoordinates().y+blockSize/2) / blockSize;
 
                     break;
                 case MoveDirection::DOWN:
                     ex = (enemies[i]->getCoordinates().x) / blockSize;
-                    ey = (enemies[i]->getCoordinates().y - 16) / blockSize;
+                    ey = (enemies[i]->getCoordinates().y - blockSize / 2) / blockSize;
                     break;
                 case MoveDirection::RIGHT:
-                    ex = (enemies[i]->getCoordinates().x-16) / blockSize;
+                    ex = (enemies[i]->getCoordinates().x- blockSize / 2) / blockSize;
                     ey = (enemies[i]->getCoordinates().y) / blockSize;
                     break;
                 case MoveDirection::LEFT:
-                    ex = (enemies[i]->getCoordinates().x + 16) / blockSize;
+                    ex = (enemies[i]->getCoordinates().x + blockSize / 2) / blockSize;
                     ey = (enemies[i]->getCoordinates().y) / blockSize;
                     break;
 
@@ -247,13 +247,13 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
         //On update les towers
         for (int i = 1; i < towers.size(); i++)
         {
-            towers[i]->update(enemies);
+            towers[i]->update(enemies,time_start);
         }
         if (time_since_last_spawn <= time_start && nbEnemies > 0)
         {
             
-            //enemies.push_back(enemies[0]->clone(spawnBlock.x * blockSize + 16, spawnBlock.y * blockSize + 16));
-            enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x * blockSize + 16, spawnBlocks[currentSpawnId]->y * blockSize + 16));
+            
+            enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x * blockSize + blockSize / 2, spawnBlocks[currentSpawnId]->y * blockSize + blockSize / 2));
             currentSpawnId = (currentSpawnId + 1) % spawnBlocks.size();
 
 

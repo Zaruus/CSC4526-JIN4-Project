@@ -11,6 +11,7 @@ Tower::Tower(float x, float y,Strategy strat)
 	sf::Vector2f size(32, 32) ;
 	sf::RectangleShape tmp(size);
     
+    hasBrokenDown = false;
 
 	
     
@@ -61,6 +62,8 @@ Tower::Tower(float x, float y,Strategy strat)
 		{ TowerStates::Shooting       , TowerStates::Aiming , TowerTriggers::ShootingToAiming    ,nullptr , {} },
 		{ TowerStates::Shooting       , TowerStates::Final , TowerTriggers::ShootingToFinal    ,nullptr , {} },
 		{ TowerStates::Aiming       , TowerStates::Final , TowerTriggers::AimingToFinal    ,nullptr , {} },
+        { TowerStates::Shooting       , TowerStates::Broken , TowerTriggers::ShootingToBroken    ,nullptr , {} },
+        { TowerStates::Broken       , TowerStates::Aiming , TowerTriggers::BrokenToAiming    ,nullptr , {} },
 		});
 }
 
@@ -131,7 +134,7 @@ void Tower::addTarget(std::unique_ptr<Enemy> e)
     targets.push_back(e.get());
 }
 
-void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
+void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies, std::chrono::time_point<std::chrono::high_resolution_clock> time)
 {
     //std::cout << "Tower targets size is : " << targets.size() << "\n";
     switch (machine.state())
@@ -204,7 +207,10 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies)
             
         }
         break;
+    case TowerStates::Broken:
 
+
+        break;
     case TowerStates::Final:
 
         break;
@@ -240,4 +246,20 @@ std::unique_ptr<Tower> Tower::clone(float x,float y, Strategy strat)
     auto newClone = std::make_unique<Tower>(x, y, strat);
     
     return std::move(newClone);
+}
+
+void Tower::breakDown()
+{
+    if (!hasBrokenDown)
+    {
+        //On break
+        machine.execute(TowerTriggers::ShootingToBroken);
+
+        hasBrokenDown = true;
+        
+    }
+    
+
+    //return true
+
 }

@@ -1,6 +1,8 @@
 #pragma once
 
 #include "fsm.h"
+#include "BreakResponseStrategy.h"
+#include "ResponseStrategy.h"
 #include <iostream>
 
 
@@ -71,6 +73,8 @@ public:
 
 	float getSpeed();
 
+	void respond();
+
 
 
 
@@ -91,6 +95,10 @@ private:
 	sf::RectangleShape image;
 
 	float life;
+
+	ResponseStrategy* strategy;
+
+	int attackedTowers;
 	
 	
 

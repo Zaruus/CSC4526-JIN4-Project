@@ -3,6 +3,10 @@
 
 Enemy::Enemy(float x, float y,float width,float height)
 {
+	//BreakResponseStrategy tmps();
+	//this->strategy = tmps;
+	strategy = new BreakResponseStrategy();
+	attackedTowers = 2;
 
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
@@ -109,7 +113,7 @@ void Enemy::triggerMachine(Triggers trig)
 
 void Enemy::update()
 {
-	std::cout << "My speed is : " << speed << "\n";
+	//std::cout << "My speed is : " << speed << "\n";
 	switch (machine.state())
 	{
 	case States::MOVING:
@@ -201,4 +205,17 @@ void Enemy::reloadMovement()
 float Enemy::getSpeed()
 {
 	return speed;
+}
+
+
+void Enemy::respond()
+{
+	if (attackedTowers > 0)
+	{
+		if (strategy->respond())
+		{
+			attackedTowers--;
+		}
+	}
+	//strategy->respond();
 }
