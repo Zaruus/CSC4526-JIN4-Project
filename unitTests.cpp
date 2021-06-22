@@ -72,7 +72,7 @@ TEST(TestTMX, CheckSecondLayerTileID)
 
 TEST(TestEnemy, testClass)
 {
-    Enemy e(0, 0,1,1);
+    Enemy e(0, 0,1,1,KnockStrategies::NormalKnock);
     e.setSpeed(1);
 
 
@@ -89,7 +89,7 @@ TEST(TestEnemy, testClass)
 
 TEST(TestPairEnemyFsm, testpairage)//On test le fonctionnement qu'aurais une pair fsm/enemy
 {
-    Enemy e(0, 0,1,1);
+    Enemy e(0, 0,1,1, KnockStrategies::NormalKnock);
     e.setSpeed(1);
 
     //using F = FSM::Fsm<States, States::Initial, Triggers>;
@@ -132,7 +132,7 @@ TEST(TestPairEnemyFsm, testpairage)//On test le fonctionnement qu'aurais une pai
 TEST(TestEnemy, testaffichage)
 {
     sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
-    Enemy e(0, 0, 200, 200);
+    Enemy e(0, 0, 200, 200, KnockStrategies::NormalKnock);
    
     
 
@@ -162,10 +162,10 @@ TEST(TestTower, testTargets)
     Tower* tower = new Tower(0, 0,Strategy::SingleTargetStrategy);
     std::vector<std::unique_ptr<Enemy>> enemies;
 
-    tower->addTarget(std::make_unique<Enemy>(200, 200, 200, 200)); //Ennemi dans la liste targets, en-dehors de la range
+    tower->addTarget(std::make_unique<Enemy>(200, 200, 200, 200, KnockStrategies::NormalKnock)); //Ennemi dans la liste targets, en-dehors de la range
 
-    enemies.push_back(std::make_unique<Enemy>(500, 500, 200, 200)); //Ennemi hors de la liste targets, en-dehors de la range
-    enemies.push_back(std::make_unique<Enemy>(10, 10, 200, 200)); //Ennemi hors de la liste targets, dans la range
+    enemies.push_back(std::make_unique<Enemy>(500, 500, 200, 200, KnockStrategies::NormalKnock)); //Ennemi hors de la liste targets, en-dehors de la range
+    enemies.push_back(std::make_unique<Enemy>(10, 10, 200, 200, KnockStrategies::NormalKnock)); //Ennemi hors de la liste targets, dans la range
 
     tower->aim(enemies);
 

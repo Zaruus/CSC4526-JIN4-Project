@@ -52,6 +52,7 @@ private:
 	int nbEnemies;
 	int deltaEnemies;
 	int buildTowerResource;
+	int HalfLifeKnockIndex;
 
 	
 	std::vector<std::unique_ptr<Enemy>> enemies;
@@ -74,6 +75,10 @@ private:
 
 
 	std::vector<std::unique_ptr<float>> doorsLife;
+
+	int spawnIndex;
+
+	
 
 	
 	

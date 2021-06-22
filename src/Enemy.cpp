@@ -10,8 +10,7 @@ Enemy::Enemy(float x, float y,float width,float height,KnockStrategies strat)
 	sf::Vector2f coords(x, y);
 	this->coordinates = coords;
 
-	originSpeed = 1.0f;
-	speed = 1.0f;
+	
 
 	
 
@@ -33,6 +32,7 @@ Enemy::Enemy(float x, float y,float width,float height,KnockStrategies strat)
 
 	image = tmp;
 
+	maxLife = 100;
 	life = 100;
 
 	switch (strat)
@@ -41,7 +41,14 @@ Enemy::Enemy(float x, float y,float width,float height,KnockStrategies strat)
 		originSpeed = 1.0f;
 		speed = 1.0f;
 		strategy = new NormalKnockStrategy();
+		healthColor = healthColor.Red;
 
+		break;
+	case KnockStrategies::HalfLifeKnock:
+		originSpeed =0.5f;
+		speed = 0.5f;
+		strategy = new HalfLifeKnockStrategy();
+		healthColor = healthColor.Magenta;
 		break;
 
 	default:
@@ -148,8 +155,30 @@ void Enemy::render(sf::RenderTarget& window)
 	//sf::Vector2f renderCoords(coordinates.x,coordinates.y);
 	
 	//image.setPosition(renderCoords);
-	sf::Color health(abs(life)*2.55, 0, 0, 255);
-	image.setFillColor(health);
+
+	switch (idStrategy)
+	{
+		
+	case KnockStrategies::NormalKnock:
+		
+		//healthColor.a*= abs(life/(life*100));
+		healthColor.r = 2.55 * life;
+		
+		break;
+	case KnockStrategies::HalfLifeKnock:
+		healthColor.r = 2.55 * life;
+		healthColor.b = 2.55 * life;
+		
+		break;
+
+	default:
+		
+		
+		break;
+	}
+	
+	image.setFillColor(healthColor);
+	
 	window.draw(image);
 
 }

@@ -21,7 +21,7 @@ bool SlowDownAllStrategy::attack(std::vector<Enemy*>& targets)
           //targets[i]->setSpeed(targets[i]->getOriginSpeed() / 2);
             if (targets[i]->getSpeed() == targets[i]->getOriginSpeed())
             {
-                targets[i]->setSpeed(0.5f);
+                targets[i]->setSpeed(targets[i]->getOriginSpeed()/2);
                 targets[i]->reloadMovement();
             }
             

@@ -24,6 +24,8 @@ Play_state::Play_state(std::string filePath) : Game_state()
     nbEnemies = doc.child("Param").attribute("nbEnemies").as_int();
     deltaEnemies = doc.child("Param").attribute("deltaEnemies").as_int();
     buildTowerResource = doc.child("Param").attribute("buildTowerResource").as_int();
+    HalfLifeKnockIndex = doc.child("Param").attribute("HalfLifeKnockIndex").as_int();
+    spawnIndex = 0;
 
 
     time_since_last_spawn = std::chrono::high_resolution_clock::now();
@@ -286,6 +288,11 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                 std::cout << "The game is lost\n";
             }
         }
+        if (nbEnemies == 0 && enemies.size() == 1)
+        {
+            isWon = true;
+            std::cout << "The game is won\n";
+        }
         //On update les towers
         for (int i = 1; i < towers.size(); i++)
         {
@@ -294,9 +301,19 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
         if (time_since_last_spawn <= time_start && nbEnemies > 0)
         {
             
+            spawnIndex++;
+            if (spawnIndex % 5 == 0)
+            {
+                enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x* blockSize + blockSize / 2, spawnBlocks[currentSpawnId]->y* blockSize + blockSize / 2, KnockStrategies::HalfLifeKnock));
+                currentSpawnId = (currentSpawnId + 1) % spawnBlocks.size();
+            }
+            else
+            {
+                enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x * blockSize + blockSize / 2, spawnBlocks[currentSpawnId]->y * blockSize + blockSize / 2, KnockStrategies::NormalKnock));
+                currentSpawnId = (currentSpawnId + 1) % spawnBlocks.size();
+            }
             
-            enemies.push_back(enemies[0]->clone(spawnBlocks[currentSpawnId]->x * blockSize + blockSize / 2, spawnBlocks[currentSpawnId]->y * blockSize + blockSize / 2,KnockStrategies::NormalKnock));
-            currentSpawnId = (currentSpawnId + 1) % spawnBlocks.size();
+            
 
 
             time_since_last_spawn = time_start + std::chrono::seconds(deltaEnemies);
@@ -385,6 +402,34 @@ void Play_state::render(sf::RenderWindow& window)
 
     // inside the main loop, between window.clear() and window.display()
     window.draw(text);
+
+    std::vector<sf::Text> doorsText;
+
+    for (int i = 0; i < doorsLife.size(); i++)
+    {
+        sf::Text newText;
+        newText.setFont(font); // font is a sf::Font
+
+    // set the string to display
+        newText.setString("Door " + std::to_string(i+1)+" : "+std::to_string((int)*doorsLife[i]));
+
+        // set the character size
+        newText.setCharacterSize(12); // in pixels, not points!
+
+        // set the color
+        newText.setFillColor(sf::Color::White);
+
+        // set the text style
+        newText.setStyle(sf::Text::Bold);
+
+        newText.setPosition(30 + (i ) * 100,5);
+
+
+        // inside the main loop, between window.clear() and window.display()
+        window.draw(newText);
+
+        //std::vector<sf::Text> doorsText;
+    }
 
     
     

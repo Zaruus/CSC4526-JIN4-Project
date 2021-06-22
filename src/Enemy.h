@@ -3,6 +3,7 @@
 #include "fsm.h"
 #include "KnockStrategy.h"
 #include "NormalKnockStrategy.h"
+#include "HalfLifeKnock.h"
 #include <iostream>
 
 
@@ -24,7 +25,7 @@
 enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
 enum class States { Initial, MOVING,Knocking, Final,Dead };
 enum class Triggers { InitialToMoving, MovingToFinal,MovingToDead,FinalToDead, InitialToDead,MovingToKnocking};
-enum class KnockStrategies {NormalKnock,last};
+enum class KnockStrategies {NormalKnock,HalfLifeKnock,last};
 
 
 
@@ -98,9 +99,10 @@ private:
 	sf::RectangleShape image;
 
 	float life;
+	float maxLife;
 
 	
-
+	sf::Color healthColor;
 	
 	KnockStrategies idStrategy;
 	KnockStrategy* strategy;
