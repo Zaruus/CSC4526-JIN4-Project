@@ -164,12 +164,12 @@ void Enemy::render(sf::RenderTarget& window)
 	case KnockStrategies::NormalKnock:
 		
 		//healthColor.a*= abs(life/(life*100));
-		healthColor.r = 2.55 * life;
+		healthColor.r = 2.55 * abs(life);
 		
 		break;
 	case KnockStrategies::HalfLifeKnock:
-		healthColor.r = 2.55 * life;
-		healthColor.b = 2.55 * life;
+		healthColor.r = 2.55 * abs(life);
+		healthColor.b = 2.55 * abs(life);
 		
 		break;
 

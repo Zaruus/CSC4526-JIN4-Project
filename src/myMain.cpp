@@ -22,7 +22,7 @@ bool handle_events() {
 
 void init()
 {
-    window = std::make_unique<sf::RenderWindow>(sf::VideoMode(16*32, 16*32), "SFML window");
+    window = std::make_unique<sf::RenderWindow>(sf::VideoMode(16*32, 16*32), "Evil Science");
     current_game_state = std::make_unique<Play_state>("resources/map1.tmx");
     
 }

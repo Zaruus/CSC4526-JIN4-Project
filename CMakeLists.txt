@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 cmake_policy(VERSION 3.15)
 
 include(FetchContent)
-project(EvilScience 1.0.0 LANGUAGES CXX)
+project(EvilScience VERSION 1.0.0 LANGUAGES CXX)
 
 set (BUILD_SHARED_LIBS FALSE)
 
