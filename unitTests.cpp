@@ -26,7 +26,7 @@
 
 
 
-TEST(TestTMX, AffichageMap) {
+/*TEST(TestTMX, AffichageMap) {
     sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
     tmx::Map map;
     map.load("mainlauncher/resources/retest.tmx");
@@ -51,7 +51,7 @@ TEST(TestTMX, AffichageMap) {
         window.display();
     }
 
-}
+}*/
 
 TEST(TestTMX, CheckSecondLayerTileID)
 {
@@ -129,7 +129,7 @@ TEST(TestPairEnemyFsm, testpairage)//On test le fonctionnement qu'aurais une pai
 
 }
 
-TEST(TestEnemy, testaffichage)
+/*TEST(TestEnemy, testaffichage)
 {
     sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
     Enemy e(0, 0, 200, 200, KnockStrategies::NormalKnock);
@@ -154,7 +154,7 @@ TEST(TestEnemy, testaffichage)
         // End the current frame and display its contents on screen
         window.display();
     }
-}
+}*/
 
 
 TEST(TestTower, testTargets)
@@ -171,4 +171,22 @@ TEST(TestTower, testTargets)
 
     EXPECT_EQ(tower->getTargets().size(), 1);
     EXPECT_EQ(enemies[1].get(), tower->getTargets()[0]);
+}
+
+
+TEST(TestEnemy, testStrategy)
+{
+    Enemy e1(0, 0, 200, 200, KnockStrategies::NormalKnock);
+    Enemy e2(0, 0, 200, 200, KnockStrategies::HalfLifeKnock);
+
+    
+    EXPECT_FLOAT_EQ(e1.knock(std::chrono::high_resolution_clock::now()),0.1f);
+
+    EXPECT_EQ(e2.knock(std::chrono::high_resolution_clock::now()), 0);
+
+    e2.prepareForTest();
+
+
+    EXPECT_EQ(e2.knock(std::chrono::high_resolution_clock::now()), 50);
+
 }

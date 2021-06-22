@@ -6,6 +6,8 @@ public:
 	HalfLifeKnockStrategy();
 	virtual float knock(std::chrono::time_point<std::chrono::high_resolution_clock> time) override;
 
+	void prepareForTest() override;
+
 
 private:
 	std::chrono::time_point<std::chrono::high_resolution_clock> timeUntilKnock;

@@ -24,7 +24,7 @@
 
 enum MoveDirection { UP, DOWN, LEFT, RIGHT, STOPPED };
 enum class States { Initial, MOVING,Knocking, Final,Dead };
-enum class Triggers { InitialToMoving, MovingToFinal,MovingToDead,FinalToDead, InitialToDead,MovingToKnocking};
+enum class Triggers { InitialToMoving, MovingToFinal,MovingToDead,FinalToDead, InitialToDead,MovingToKnocking,KnockingToDead};
 enum class KnockStrategies {NormalKnock,HalfLifeKnock,last};
 
 
@@ -76,6 +76,9 @@ public:
 	float getSpeed();
 
 	float knock(std::chrono::time_point<std::chrono::high_resolution_clock> time);
+
+
+	void prepareForTest();
 
 
 

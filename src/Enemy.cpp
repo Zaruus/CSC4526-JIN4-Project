@@ -22,6 +22,7 @@ Enemy::Enemy(float x, float y,float width,float height,KnockStrategies strat)
 		{ States::Final       , States::Dead , Triggers::FinalToDead    ,nullptr , {} },
 		{ States::Initial       , States::Dead , Triggers::InitialToDead    ,nullptr , {} },
 		{ States::MOVING       , States::Knocking , Triggers::MovingToKnocking    ,nullptr , {} },
+		{ States::Knocking       , States::Dead , Triggers::KnockingToDead    ,nullptr , {} },
 		});
 
 	sf::Vector2f size(width,height);
@@ -143,6 +144,7 @@ void Enemy::update()
 		move();
 		break;
 
+	
 	default:
 
 		break;
@@ -211,6 +213,9 @@ int Enemy::attack(float damage)
 		case States::MOVING:
 			machine.execute(Triggers::MovingToDead);
 			break;
+		case States::Knocking:
+			machine.execute(Triggers::KnockingToDead);
+			break;
 
 		case States::Final:
 			machine.execute(Triggers::FinalToDead);
@@ -255,6 +260,14 @@ float Enemy::getSpeed()
 float Enemy::knock(std::chrono::time_point<std::chrono::high_resolution_clock> time)
 {
 	return strategy->knock(time);
+}
+
+void Enemy::prepareForTest()
+{
+	if (idStrategy == KnockStrategies::HalfLifeKnock)
+	{
+		strategy->prepareForTest();
+	}
 }
 
 

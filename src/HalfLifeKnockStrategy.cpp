@@ -1,4 +1,5 @@
 #include "HalfLifeKnock.h"
+#include <iostream>
 
 
 HalfLifeKnockStrategy::HalfLifeKnockStrategy()
@@ -31,5 +32,14 @@ float HalfLifeKnockStrategy::knock(std::chrono::time_point<std::chrono::high_res
 
 		return 0;
 	}
+}
+
+
+
+void HalfLifeKnockStrategy::prepareForTest()
+{
+	hasKnockedOnce = true;
+	timeUntilKnock = std::chrono::high_resolution_clock::now() - std::chrono::seconds(10);
+	std::cout << "Prepared enemy strategy for test \n";
 }
 
