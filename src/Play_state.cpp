@@ -5,7 +5,7 @@
 
 using namespace std::chrono_literals;
 
-Play_state::Play_state(std::string filePath) : Game_state()
+Play_state::Play_state(std::string filePath, sf::RenderWindow& window) : Game_state()
 {
     
     //On parse la map et on récupère les données de tailles de blocks et de map
@@ -16,6 +16,13 @@ Play_state::Play_state(std::string filePath) : Game_state()
     mapSize.x = map.getTileCount().x;
     mapSize.y = map.getTileCount().y;
     blockSize = map.getTileSize().x;
+
+    //On vérifie que le fenêtre peut correctement afficher la map, sinon on la resize
+    if (window.getSize().x != mapSize.x * blockSize || window.getSize().y != mapSize.y * blockSize)
+    {
+
+        window.setSize(sf::Vector2u(mapSize.x * blockSize, mapSize.y * blockSize));
+    }
     
 
     //On parse le document xml pour récupérer les données du niveaux
@@ -329,6 +336,8 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
 
 void Play_state::render(sf::RenderWindow& window)
 {
+    
+
     window.draw(*layerZero);
 
     // Render tourelles

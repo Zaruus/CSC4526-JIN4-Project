@@ -23,7 +23,8 @@ bool handle_events() {
 void init()
 {
     window = std::make_unique<sf::RenderWindow>(sf::VideoMode(16*32, 16*32), "Evil Science");
-    current_game_state = std::make_unique<Play_state>("resources/map1.tmx");
+    
+    current_game_state = std::make_unique<Play_state>("resources/map1.tmx",*window);
     
 }
 
@@ -72,6 +73,12 @@ int myMain() {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window->close();
+            if (event.type == sf::Event::Resized)
+            {
+                // update the view to the new size of the window
+                sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+                window->setView(sf::View(visibleArea));
+            }
         }
         
 

@@ -24,7 +24,7 @@ public:
 	 void update(std::chrono::time_point<std::chrono::high_resolution_clock> time_start) override;
 	 void init() override;
 	Play_state();
-	Play_state(std::string filePath); // On ouvre le fichier tmx donné par filePath et on en sort les informations du niveau
+	Play_state(std::string filePath, sf::RenderWindow& window); // On ouvre le fichier tmx donné par filePath et on en sort les informations du niveau
 	void switchWantsToBuild();
 	void buildTower();
 	
