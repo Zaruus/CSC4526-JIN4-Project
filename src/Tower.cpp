@@ -13,18 +13,9 @@ Tower::Tower(float x, float y,Strategy strat)
     
     hasBrokenDown = false;
 
-	
-    
-
-	range = 100;
-
-    sf::CircleShape tmpc(range,30);
+    sf::CircleShape tmpc(0, 30);
     tmpc.setFillColor(sf::Color::Transparent);
     tmpc.setOutlineThickness(2);
-    
-    tmpc.setOrigin(range, range);
-
-    
 
     idStrategy = strat;
 
@@ -34,17 +25,20 @@ Tower::Tower(float x, float y,Strategy strat)
         strategy = new SingleTargetStrategy();
         tmp.setFillColor(sf::Color::Black);
         tmpc.setOutlineColor(sf::Color::Black);
+        range = 100;
         break;
 
     case Strategy::SlowDownAllStrategy:
         strategy = new SlowDownAllStrategy();
         tmp.setFillColor(sf::Color::Blue);
         tmpc.setOutlineColor(sf::Color::Blue);
+        range = 200;
         break;
     case Strategy::ZoneAttackStrategy:
         strategy = new ZoneAttackStrategy();
         tmp.setFillColor(sf::Color::White);
         tmpc.setOutlineColor(sf::Color::White);
+        range = 150;
         break;
     default:
         strategy = new SingleTargetStrategy();
@@ -52,6 +46,9 @@ Tower::Tower(float x, float y,Strategy strat)
         break;
     }
     
+    tmpc.setRadius(range);
+    tmpc.setOrigin(range, range);
+
     image = tmp;
     rangeCircle = tmpc;
 
