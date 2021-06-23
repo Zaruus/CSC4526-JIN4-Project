@@ -54,9 +54,7 @@ private:
 	std::vector<Enemy*> targets;
 	sf::RectangleShape image;
 
-	//std::unique_ptr<FSM::Fsm<States, States::Initial, Triggers>> machine;
 	FSM::Fsm<TowerStates, TowerStates::Initial, TowerTriggers> machine;
-	//sf::RectangleShape tower_image;
 
 	AttackStrategy* strategy;
 	Strategy idStrategy;

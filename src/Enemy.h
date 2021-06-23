@@ -94,6 +94,7 @@ private:
 	MoveDirection direction;
 	sf::Vector2f size;
 
+	//Variables de vitesse
 	float speed;
 	float originSpeed;
 

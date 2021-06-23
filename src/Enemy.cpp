@@ -4,7 +4,7 @@
 Enemy::Enemy(float x, float y,float width,float height,KnockStrategies strat)
 {
 	
-	//strategy = new BreakResponseStrategy();
+	
 	
 
 	sf::Vector2f coords(x, y);
@@ -121,7 +121,7 @@ MoveDirection Enemy::getMoveDirection()
 
 sf::Vector2f Enemy::getCoordinates() const
 {
-	//return this->coordinates;
+	
 	return image.getPosition();
 }
 
@@ -137,7 +137,7 @@ void Enemy::triggerMachine(Triggers trig)
 
 void Enemy::update()
 {
-	//std::cout << "My speed is : " << speed << "\n";
+	
 	switch (machine.state())
 	{
 	case States::MOVING:
@@ -154,16 +154,14 @@ void Enemy::update()
 
 void Enemy::render(sf::RenderTarget& window)
 {
-	//sf::Vector2f renderCoords(coordinates.x,coordinates.y);
 	
-	//image.setPosition(renderCoords);
 
 	switch (idStrategy)
 	{
 		
 	case KnockStrategies::NormalKnock:
 		
-		//healthColor.a*= abs(life/(life*100));
+		
 		healthColor.r = 2.55 * abs(life);
 		
 		break;

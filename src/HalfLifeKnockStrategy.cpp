@@ -6,7 +6,7 @@ HalfLifeKnockStrategy::HalfLifeKnockStrategy()
 {
 	hasKnockedOnce = false;
 	deltaKnock = 5;
-	//timeUntilKnock = std::chrono::time_poin;
+	
 }
 
 float HalfLifeKnockStrategy::knock(std::chrono::time_point<std::chrono::high_resolution_clock> time)

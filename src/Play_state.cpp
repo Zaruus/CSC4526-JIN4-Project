@@ -7,8 +7,8 @@ using namespace std::chrono_literals;
 
 Play_state::Play_state(std::string filePath) : Game_state()
 {
-    //current_game_state = make_unique<Play_state>("resources/NouvelleMapTest.tmx");
     
+    //On parse la map et on récupère les données de tailles de blocks et de map
     tmx::Map map;
     map.load("resources/map2.tmx");
     layerZero = std::make_unique<MapLayer>(map, 0);
@@ -27,12 +27,12 @@ Play_state::Play_state(std::string filePath) : Game_state()
     HalfLifeKnockIndex = doc.child("Param").attribute("HalfLifeKnockIndex").as_int();
     spawnIndex = 0;
 
-
+    //On met en place le premier temps de spawn
     time_since_last_spawn = std::chrono::high_resolution_clock::now();
 
     
 
-    //ON récupère les coordonnées du block où les ennemis devront spawn
+    //ON récupère les coordonnées du block où les ennemis devront spawn et celles où les portes se situeront
     for (int i = 0; i < mapSize.x; i++)
     {
         for (int j = 0; j < mapSize.y; j++)
@@ -49,6 +49,7 @@ Play_state::Play_state(std::string filePath) : Game_state()
             }
         }
     }
+    //On met en place l'id du premier block sur lequel les ennemis vont spawn
     currentSpawnId = 0;
     
     
@@ -56,22 +57,17 @@ Play_state::Play_state(std::string filePath) : Game_state()
 
   //On crée l'ennemi prototype qui clonera les autres
     auto e = std::make_unique<Enemy>(spawnBlocks[0]->x * blockSize * (3 / 2), spawnBlocks[0]->y * blockSize * (3 / 2), 20, 20,KnockStrategies::NormalKnock);
-
     enemies.push_back(std::move(e));
 
     
     //On crée la tour prototype qui clonera les autres
     auto t = std::make_unique<Tower>(200,200, Strategy::SingleTargetStrategy);
-
-   
     towers.push_back(std::move(t));
 
     //On initialise les variables de constructions de tower
     wantsToBuild = false;
     buildResources = 12;
-
     sf::RectangleShape tmp(*(new sf::Vector2f(32,32)));
-    
     possibleBuild = tmp;
     buildStrategy = Strategy::SingleTargetStrategy;
 
@@ -103,6 +99,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                     canBuildHere = false;
                 }
             }
+            //On snap la construction possible à la grille
             float x = possibleBuild.getPosition().x - (int)possibleBuild.getPosition().x % blockSize;
            
             float y = possibleBuild.getPosition().y - (int)possibleBuild.getPosition().y % blockSize;
@@ -114,7 +111,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
             y = (y > (mapSize.y - 1)) ? (mapSize.y - 1) : y;
             
 
-            //
+            //On vérifie qu'il est possible de construire une tour à cet emplacement
             if (canBuildHere && layerOne->getTile(x, y).ID != 3 && layerOne->getTile(x, y).ID != 4 && layerOne->getTile(x, y).ID != 5 && layerOne->getTile(x, y).ID != 7 && layerOne->getTile(x, y).ID != 8)
             {
                 buildTower();
@@ -127,14 +124,14 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
         wantsToBuild = false;
     }
 
-
+    //Si on appuie sur Q on switch à un nouveau type de tower
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
     {
         qPressedCounter++;
         if (qPressedCounter == 1)
         {
-            //On sélectionne un nouveau type de tourelle
-            //y = (y > blockSize * (mapSize.y - 1)) ? blockSize * (mapSize.y - 1) : y;
+            
+            
             
             buildStrategy = ((int)buildStrategy - 1 < 0) ? (Strategy)((int)Strategy::last-1) : (Strategy)((int)buildStrategy - 1);
             
@@ -144,6 +141,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
     {
         qPressedCounter = 0;
     }
+    //Si on appuie sur D on switch à un nouveau type de tower
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         dPressedCounter++;
@@ -165,7 +163,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
     {
         for (int i = 1;i<enemies.size();i++)
         {
-
+            //On efface les ennemis qui sont dans l'état Dead
             if (enemies[i]->getState() == States::Dead)
             {
                 enemies.erase(enemies.begin() + i);
@@ -179,7 +177,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                 // On utilise des coordonnées permettant à l'ennemi de rester sur le chemin visuellement
                 int ex;
                 int ey;
-
+                //En fonction de la direction de déplacement on choisit des coordonnes de tet différentes
                 switch (enemies[i]->getMoveDirection())
                 {
                 case MoveDirection::UP:
@@ -206,7 +204,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                     break;
                 }
 
-                //switch (layerOne->getTile((enemies[i]->getCoordinates().x + (enemies[i]->getSize().x / 2)) / blockSize, (enemies[i]->getCoordinates().y + (enemies[i]->getSize().y / 2)) / blockSize).ID)
+                //On choisit l'état de l'ennemi en fonction des coordonnées obtenues au dessus
                 switch (layerOne->getTile(ex,ey).ID)
                 {
                 case 3:
@@ -280,6 +278,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
             
             
         }
+        //On vérifie que les portes ont une vie supérieure ou égale à 0
         for (int i = 0; i < doorsLife.size(); i++)
         {
             if (*doorsLife[i] <= 0)
@@ -288,6 +287,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
                 std::cout << "The game is lost\n";
             }
         }
+        //On vérifie qu'il reste des ennemis à éliminer
         if (nbEnemies == 0 && enemies.size() == 1)
         {
             isWon = true;
@@ -298,6 +298,7 @@ void Play_state::update(std::chrono::time_point<std::chrono::high_resolution_clo
         {
             towers[i]->update(enemies,time_start);
         }
+        //On vérifie qu'on peut spawn un nouvel ennemi
         if (time_since_last_spawn <= time_start && nbEnemies > 0)
         {
             
@@ -330,18 +331,18 @@ void Play_state::render(sf::RenderWindow& window)
 {
     window.draw(*layerZero);
 
-    
+    // Render tourelles
     for (int i = 1; i < towers.size(); i++)
     {
         towers[i]->render(window);
 
     }
-
+    // Render ennemis
     for (int i = 1; i < enemies.size(); i++)
     {
         enemies[i]->render(window);
     }
-
+    //Render du build possible
     if (wantsToBuild)
     {
         //On build obligatoirement sur une tile
@@ -400,9 +401,11 @@ void Play_state::render(sf::RenderWindow& window)
     text.setStyle(sf::Text::Bold);
 
 
-    // inside the main loop, between window.clear() and window.display()
+   
     window.draw(text);
 
+
+    //Cette partie affiche la vie restante de la ou des portes
     std::vector<sf::Text> doorsText;
 
     for (int i = 0; i < doorsLife.size(); i++)
@@ -428,7 +431,6 @@ void Play_state::render(sf::RenderWindow& window)
         // inside the main loop, between window.clear() and window.display()
         window.draw(newText);
 
-        //std::vector<sf::Text> doorsText;
     }
 
     

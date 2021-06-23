@@ -96,7 +96,7 @@ void Tower::aim(const std::vector<std::unique_ptr<Enemy>> &enemies)
             
         }
     }
-
+    //On retire les ennemis qui ne sont plus à portée de la tourelle
     for (int i = 0; i < targets.size(); i++)
     {
         if (this->getDistance(*targets[i]) > pow(range, 2) || targets[i]->getState() == States::Dead)
@@ -140,7 +140,6 @@ void Tower::addTarget(std::unique_ptr<Enemy> e)
 
 void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies, std::chrono::time_point<std::chrono::high_resolution_clock> time)
 {
-    //std::cout << "Tower targets size is : " << targets.size() << "\n";
     switch (machine.state())
     {
     case TowerStates::Initial:
@@ -165,48 +164,26 @@ void Tower::update(std::vector<std::unique_ptr<Enemy>>& enemies, std::chrono::ti
         }
         else
         {
-            //Si l'ennemi est trop loin, il sort de la liste des cibles de la tour
-            /*if (!targets.empty())
-            {
-                for (int i = 0; i < targets.size(); i++)
-                {
-                    if (this->getDistance(*targets[i]) > pow(range, 2) || targets[i]->getState() == States::Dead)
-                    {
-                        targets.erase(targets.begin() + i);
-
-                    }
-                }
-            }*/
-            
-
-           /* if (strategy->attack(targets))
-            {
-                machine.execute(TowerTriggers::ShootingToAiming);
-                targets.erase(targets.begin());
-               
-            }*/
+           //
             bool resultAttack = strategy->attack(targets);
             switch (idStrategy)
             {
             case Strategy::SingleTargetStrategy:
-
-                break;
                 if (resultAttack)
                 {
                     targets.erase(targets.begin());
                 }
+                break;
+                
             case Strategy::SlowDownAllStrategy:
-             /*for (int i = 0; i < targets.size(); i++)
-                {
-                    targets[i]->setSpeed(targets[i]->getOriginSpeed());
-                }*/
+            
                 break;
             default:
 
                 break;
             }
 
-
+            //On aim et on supprime les ennemis sortis
             aim(enemies);
             
         }
@@ -246,18 +223,16 @@ sf::Vector2f Tower::getCoordinates()
 
 std::unique_ptr<Tower> Tower::clone(float x,float y, Strategy strat)
 {
-    //auto newClone = std::make_unique<Tower>(x, y, idStrategy);
     auto newClone = std::make_unique<Tower>(x, y, strat);
     
     return std::move(newClone);
 }
-
+//Fonction pour mettre la tour en panne (inutilisée pour l'instant)
 void Tower::breakDown()
 {
     if (!hasBrokenDown)
     {
         //On break
-        //machine.execute(TowerTriggers::ShootingToBroken);
         std::cout << "tower tried to break";
 
         hasBrokenDown = true;
@@ -265,6 +240,6 @@ void Tower::breakDown()
     }
     
 
-    //return true
+
 
 }

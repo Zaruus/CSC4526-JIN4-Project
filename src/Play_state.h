@@ -37,7 +37,7 @@ private:
 	//Path_tile path_layer[NB_TILES_VERTICAL * NB_TILES_HORIZONTAL] à créer en tant que vector
 
 	
-	//sf::RenderWindow window(sf::VideoMode(640, 640), "SFML window");
+	
 	std::unique_ptr<MapLayer> layerZero;
 	std::unique_ptr<MapLayer> layerOne;
 
