@@ -4,7 +4,7 @@
 
 SingleTargetStrategy::SingleTargetStrategy() : AttackStrategy()
 {
-
+    setAttackDamage(0.5f);
 }
 
 bool SingleTargetStrategy::attack(std::vector<Enemy*>& targets)
@@ -14,7 +14,7 @@ bool SingleTargetStrategy::attack(std::vector<Enemy*>& targets)
     if (!targets.empty())
     {
         
-        if (targets[0]->attack(0.5) < 0)
+        if (targets[0]->attack(getAttackDamage()) < 0)
         {
             return true;
         }

@@ -4,7 +4,7 @@
 
 ZoneAttackStrategy::ZoneAttackStrategy() : AttackStrategy()
 {
-
+    setAttackDamage(0.3f);
 }
 
 bool ZoneAttackStrategy::attack(std::vector<Enemy*>& targets)
@@ -14,7 +14,7 @@ bool ZoneAttackStrategy::attack(std::vector<Enemy*>& targets)
     if (!targets.empty())
     {
         for (auto target : targets) {
-            if (target->attack(0.3) < 0) {
+            if (target->attack(getAttackDamage()) < 0) {
                 return true;
             }
         }
