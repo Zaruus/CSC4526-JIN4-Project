@@ -11,13 +11,18 @@ Saurez-vous les repousser avec vos robots avant qu'ils n'atteignent votre châte
 -Principe du jeu-
 
 Les manifestants arrivent en-bas de l'écran.
-S'ils atteignent le haut, vous avez perdu.
+S'ils cassent les portes vous avez perdu.
+Pour cela ils attaqueront de différentes manières, certains infligeront de faibles dégats en permanence et d'autre infligeront des dégats important à intervalles réguliers (5 secondes par exemple).S
 Tuez tous les manifestants en plaçant des tourelles en-dehors du chemin (restez appuyez sur la touche espace et cliquez où bon vous semble pour la placer).
 Si vous les éliminez tous, c'est gagné !
 
 Vous partez avec 12$.
 Chaque tourelle coûte 6$.
 Le fait de tuer un manifestant vous rapporte 3$.
+Pour passer en mode construction vous devez presser espace puis cliquer à l'endroit voulu.
+Pour changer de type de tourelle vous pouvez appuyer sur q ou d.
+
+
 
 -Bibliothèques externes utilisées-
 
@@ -38,4 +43,4 @@ State
 -Auteurs-
 
 Quentin Moreels
- / Pierre De La Ville Montbazon
+ / Pierre de La Ville Montbazon
