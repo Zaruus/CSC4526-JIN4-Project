@@ -22,7 +22,8 @@ Le fait de tuer un manifestant vous rapporte 3$.
 Pour passer en mode construction vous devez presser espace puis cliquer à l'endroit voulu.
 Pour changer de type de tourelle vous pouvez appuyer sur q ou d.
 
-
+-Paramètres-
+Il est possible de changer des paramètres dans le fichier resources/param.xml.
 
 -Bibliothèques externes utilisées-
 
